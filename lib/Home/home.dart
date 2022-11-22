@@ -1,9 +1,40 @@
 import 'package:check_internet/Classes/Ping.dart';
+import 'package:check_internet/Services/AdMobServices.dart';
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
-class Home extends StatelessWidget {
+
+class Home extends StatefulWidget {
+  @override
+  MyHomeState createState() => MyHomeState();
+}
+
+class MyHomeState extends State<Home> {
+  @override
+  void initState() {
+    super.initState();
+    upBanner.load();
+    downBanner.load();
+  }
+
+  final BannerAd upBanner = BannerAd(
+  adUnitId: AdMobServices.BannerAdUnitId!,
+  size: AdSize.banner,
+  request: AdRequest(),
+  listener: AdMobServices.bannerListener,
+  );
+
+  final BannerAd downBanner = BannerAd(
+  adUnitId: AdMobServices.BannerAdUnitId!,
+  size: AdSize.largeBanner,
+  request: AdRequest(),
+  listener: AdMobServices.bannerListener,
+  );
+
   @override
   Widget build(BuildContext context) {
+    final AdWidget upAdWidget = AdWidget(ad: upBanner);
+    final AdWidget downAdWidget = AdWidget(ad: downBanner);
     return Scaffold(
       backgroundColor: Colors.blueGrey,
       appBar: AppBar(
@@ -30,9 +61,15 @@ class Home extends StatelessWidget {
       body: Column(
         children: [
           Container(
+            alignment: Alignment.center,
+            child: upAdWidget,
+            width: upBanner.size.width.toDouble(),
+            height: upBanner.size.height.toDouble(),
+          ),
+          Container(
             height: 300,
             width: 300,
-            margin: const EdgeInsets.only(left: 0, top: 100),
+            margin: const EdgeInsets.only(left: 0, top: 70),
             child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: GridView(children: [
@@ -75,9 +112,16 @@ class Home extends StatelessWidget {
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.white,
             ),
-          ),)
+          ),),
+          Container(
+            margin: const EdgeInsets.only(top: 70),
+            alignment: Alignment.center,
+            child: downAdWidget,
+            width: downBanner.size.width.toDouble(),
+            height: downBanner.size.height.toDouble(),
+          ),
         ],
       ),
-      );
+    );
   }
 }
