@@ -36,23 +36,14 @@ class Pinger {
   Future<void> ping() async {
     List<String> hosts = <String>[];
     for (var element in host) {
-      //var name = element['name'];
-      //var addr = element['addr'];
       hosts.add(element['addr'].toString());
     }
-    print(hosts[1]);
-    final ping = Ping(hosts[1], count: 5);
-    print('Running command: ${ping.command}');
-    ping.stream.listen((event) {
-    print(event);
-    });
-    /*
-    for (var i = 0; i < 30; i++) {
-      //await Future.delayed(Duration(seconds: 1));
+    // for(var i = 0; i < hosts.length; i++){         da ripristinare dopo aver capito come gestire la risposta del ping
+      final ping = Ping(hosts[0], count: 5);
+      print('Running command: ${ping.command}');
       ping.stream.listen((event) {
-      print(event);
+        // fare gli if per controllare le risposte dei ping
       });
-    }
-    */
+    // }
   }
 }
