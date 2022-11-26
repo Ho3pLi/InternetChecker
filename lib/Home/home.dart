@@ -107,8 +107,8 @@ class MyHomeState extends State<Home> {
           Center(child: ElevatedButton(
             onPressed: () {
               // TODO prima di lanciare i ping bisogna controllare se il dispositivo ha accesso a internet (https://bit.ly/3U0zJkb)
-              Navigator.pushNamed(context, '/third');
-              Pinger().ping();
+              // Navigator.pushNamed(context, '/third');
+              Pinger().pingFirst();
             },
             child: Text('Start Checking', style: TextStyle(color: Colors.black),),
               style: ElevatedButton.styleFrom(

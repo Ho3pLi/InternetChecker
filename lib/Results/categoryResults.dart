@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import '../Services/AdMobServices.dart';
 
-class Results extends StatefulWidget {
+class categoryResults extends StatefulWidget {
   @override
   MyResultsState createState() => MyResultsState();
 }
 
-class MyResultsState extends State<Results> {
+class MyResultsState extends State<categoryResults> {
 
   @override
   void initState() {
@@ -96,10 +96,18 @@ class MyResultsState extends State<Results> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.zero,
                   ),
-                  leading:
-                      Icon(Icons.router, color: Colors.blueGrey, size: 24),
-                  trailing: Icon(Icons.arrow_forward_ios,
-                      color: Color(0xff808080), size: 18),
+                  leading: Icon(
+                      Icons.router,
+                      color: Colors.blueGrey,
+                      size: 24
+                    ),
+                  trailing: IconButton(
+                    icon: new Icon(Icons.arrow_forward_ios),
+                    color: Color(0xff808080),
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/fourth');
+                    },
+                  ),
                 ),
               ),
               Padding(

@@ -1,6 +1,7 @@
 import 'package:check_internet/GetStarted/getStarted.dart';
 import 'package:check_internet/Home/home.dart';
-import 'package:check_internet/Results/results.dart';
+import 'package:check_internet/Results/categoryResults.dart';
+import 'package:check_internet/Results/dfgwResults.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
@@ -23,7 +24,8 @@ class App extends StatelessWidget {
       routes: {
       '/': (context) => GetStarted(),
       '/second': (context) => Home(),
-      '/third':(context) => Results(),
+      '/third':(context) => categoryResults(),
+      '/fourth':(context) => dfgwResults(),
       },
     );
   }
