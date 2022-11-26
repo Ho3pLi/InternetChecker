@@ -42,12 +42,10 @@ class Pinger {
       final ping = Ping(hosts[2], count: 5);
       print('Running command: ${ping.command}');
       ping.stream.listen((event) {
-        if(event.error!.message == 'requestTimedOut'){
-          print('Ops qualcosa e andato storto');
-          print('Errore relativo: ${event.error}');
+        if(event.error != null){
+          print('Ops qualcosa é andato storto, errore relativo: ${event.error?.error}');
         }else if(event.error == null && event.response != null){
-          print('Ping effettuato con successo');
-          print('Risposta relativa: ${event.response}');
+          print('Ping effettuato con successo: ${event.response}');
         }
         if(event.summary != null){
           print('Summary: ${event.summary}');

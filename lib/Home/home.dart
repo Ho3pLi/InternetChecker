@@ -107,15 +107,21 @@ class MyHomeState extends State<Home> {
           Center(child: ElevatedButton(
             onPressed: () {
               // TODO prima di lanciare i ping bisogna controllare se il dispositivo ha accesso a internet (https://bit.ly/3U0zJkb)
+              Navigator.pushNamed(context, '/third');
               Pinger().ping();
             },
             child: Text('Start Checking', style: TextStyle(color: Colors.black),),
-            style: ElevatedButton.styleFrom(
+              style: ElevatedButton.styleFrom(
               backgroundColor: Colors.white,
             ),
           ),),
+          // Visibility(child: CircularProgressIndicator(
+          //   value: ,
+          //   backgroundColor: Colors.white,
+          //   strokeWidth: 5,
+          // )),
           Container(
-            margin: const EdgeInsets.only(top: 70),
+            margin: const EdgeInsets.only(top: 40),
             alignment: Alignment.center,
             child: downAdWidget,
             width: downBanner.size.width.toDouble(),
