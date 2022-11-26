@@ -44,10 +44,12 @@ class MyResultsState extends State<Results> {
             color: Color(0xffffffff),
           ),
         ),
-        leading: Icon(
-          Icons.arrow_back_ios,
+        leading: IconButton(
+          icon: new Icon(Icons.arrow_back_ios),
           color: Color(0xffffffff),
-          size: 24,
+          onPressed:() {
+            Navigator.pushNamed(context, '/second');
+          },
         ),
       ),
       body: Padding(
