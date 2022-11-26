@@ -18,7 +18,7 @@ class Pinger {
     },
     {
       'name': 'OrangePI',
-      'addr': '192.168.0.2',
+      'addr': '8.8.8.8',
       'isAlive': null,
       'rtt': []
     },
@@ -39,10 +39,19 @@ class Pinger {
       hosts.add(element['addr'].toString());
     }
     // for(var i = 0; i < hosts.length; i++){         da ripristinare dopo aver capito come gestire la risposta del ping
-      final ping = Ping(hosts[0], count: 5);
+      final ping = Ping(hosts[2], count: 5);
       print('Running command: ${ping.command}');
       ping.stream.listen((event) {
-        // fare gli if per controllare le risposte dei ping
+        if(event.error!.message == 'requestTimedOut'){
+          print('Ops qualcosa e andato storto');
+          print('Errore relativo: ${event.error}');
+        }else if(event.error == null && event.response != null){
+          print('Ping effettuato con successo');
+          print('Risposta relativa: ${event.response}');
+        }
+        if(event.summary != null){
+          print('Summary: ${event.summary}');
+        }
       });
     // }
   }
