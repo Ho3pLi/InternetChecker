@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:developer';
+import 'package:check_internet/Global/globals.dart' as globals;
 import 'package:check_internet/Classes/Ping.dart';
 import 'package:check_internet/Services/AdMobServices.dart';
 import 'package:flutter/material.dart';
@@ -107,8 +110,32 @@ class MyHomeState extends State<Home> {
           Center(child: ElevatedButton(
             onPressed: () {
               // TODO prima di lanciare i ping bisogna controllare se il dispositivo ha accesso a internet (https://bit.ly/3U0zJkb)
-              // Navigator.pushNamed(context, '/third');
               Pinger().pingFirst();
+              Pinger().pingSecond();
+              Pinger().pingThird();
+              Pinger().pingFourth();
+              // Timer(Duration(seconds: 2), () {
+              //   Pinger().pingSecond();
+              //   Timer(Duration(seconds: 2), () {
+              //     Pinger().pingThird();
+              //     Timer(Duration(seconds: 2), () {
+              //       Pinger().pingFourth();
+              //       Timer(Duration(seconds: 20), (){
+              //         for (var i = 0; i < 4; i++) {
+              //           log(globals.summaries[i].toString());
+              //         }
+              //         Navigator.pushNamed(context, '/third');
+              //       });
+              //     });
+              //   });
+              // });
+              Timer(Duration(seconds: 10), () {
+                for (var i = 0; i < 4; i++) {
+                  // log(globals.host[i].toString());
+                  log(globals.summaries[i].toString());
+                }
+                Navigator.pushNamed(context, '/third');
+              });
             },
             child: Text('Start Checking', style: TextStyle(color: Colors.black),),
               style: ElevatedButton.styleFrom(
