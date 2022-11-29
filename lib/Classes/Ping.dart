@@ -1,53 +1,87 @@
 import 'dart:developer';
 import 'dart:io';
+import 'package:check_internet/Global/globals.dart' as globals;
 import 'package:dart_ping/dart_ping.dart';
 
-
 class Pinger {
-  List<Map<String, Object?>> host = [
-    {
-      'name': 'DEFGW',
-      'addr': '192.168.1.1',
-      'isAlive': null,
-    },
-    {
-      'name': 'WAN',
-      'addr': '127.0.0.1',
-      'isAlive': null,
-    },
-    {
-      'name': 'VPN',
-      'addr': '8.8.8.8',
-      'isAlive': null,
-    },
-    {
-      'name': 'INTERNET',
-      'addr': '151.7.86.183',
-      'isAlive': null,
-    }
-  ];
-
-  var wanIP = null;
-  var wanIPURL = null;
-
+  
   Future<void> pingFirst() async {
-    List<String> hosts = <String>[];
-    for (var element in host) {
-      hosts.add(element['addr'].toString());
-    }
-    final ping = Ping(hosts[0], count: 5);
+    var hostInfo = globals.host[0];
+    final ping = Ping(hostInfo['addr'].toString(), count: 5); // TODO cambiare il numero di ping
     print('Running command: ${ping.command}');
     ping.stream.listen((event) {
-      if(event.error != null){
-        log('Ops qualcosa é andato storto, errore relativo: ${event.error?.error}');
-      }else if(event.error == null && event.response != null){
-        log('Ping effettuato con successo: ${event.response}');
-      }
+      // if(event.error != null){
+      //   log('Ops qualcosa é andato storto, errore relativo: ${event.error?.error}');
+      // }else if(event.error == null && event.response != null){
+      //   log('Ping effettuato con successo: ${event.response}');
+      // }
       if(event.summary != null){
-        log('Summary: ${event.summary}');
-      if(event.summary?.received == 0){
-        host[1].values.last = false;
+        globals.summaries.add('Summary 0: ${event.summary}');
+        if(event.summary?.received != 0){
+          globals.host[0].update('isAlive', (value) => true);
+        }else if(event.summary?.received == 0){
+          globals.host[0].update('isAlive', (value) => false);
+        }
       }
+    });
+  }
+  Future<void> pingSecond() async {
+    var hostInfo = globals.host[1];
+    final ping = Ping(hostInfo['addr'].toString(), count: 5); // TODO cambiare il numero di ping
+    print('Running command: ${ping.command}');
+    ping.stream.listen((event) {
+      // if(event.error != null){
+      //   log('Ops qualcosa é andato storto, errore relativo: ${event.error?.error}');
+      // }else if(event.error == null && event.response != null){
+      //   log('Ping effettuato con successo: ${event.response}');
+      // }
+      if(event.summary != null){
+        globals.summaries.add('Summary 1: ${event.summary}');
+        if(event.summary?.received != 0){
+          globals.host[1].update('isAlive', (value) => true);
+        }else if(event.summary?.received == 0){
+          globals.host[1].update('isAlive', (value) => false);
+        }
+      }
+    });
+  }
+  Future<void> pingThird() async {
+    var hostInfo = globals.host[2];
+    final ping = Ping(hostInfo['addr'].toString(), count: 5); // TODO cambiare il numero di ping
+    print('Running command: ${ping.command}');
+    ping.stream.listen((event) {
+      // if(event.error != null){
+      //   log('Ops qualcosa é andato storto, errore relativo: ${event.error?.error}');
+      // }else if(event.error == null && event.response != null){
+      //   log('Ping effettuato con successo: ${event.response}');
+      // }
+      if(event.summary != null){
+        globals.summaries.add('Summary 2: ${event.summary}');
+        if(event.summary?.received != 0){
+          globals.host[2].update('isAlive', (value) => true);
+        }else if(event.summary?.received == 0){
+          globals.host[2].update('isAlive', (value) => false);
+        }
+      }
+    });
+  }
+  Future<void> pingFourth() async {
+    var hostInfo = globals.host[3];
+    final ping = Ping(hostInfo['addr'].toString(), count: 5); // TODO cambiare il numero di ping
+    print('Running command: ${ping.command}');
+    ping.stream.listen((event) {
+      // if(event.error != null){
+      //   log('Ops qualcosa é andato storto, errore relativo: ${event.error?.error}');
+      // }else if(event.error == null && event.response != null){
+      //   log('Ping effettuato con successo: ${event.response}');
+      // }
+      if(event.summary != null){
+        globals.summaries.add('Summary 3: ${event.summary}');
+        if(event.summary?.received != 0){
+          globals.host[3].update('isAlive', (value) => true);
+        }else if(event.summary?.received == 0){
+          globals.host[3].update('isAlive', (value) => false);
+        }
       }
     });
   }
