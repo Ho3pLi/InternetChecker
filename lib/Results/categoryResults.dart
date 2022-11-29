@@ -1,5 +1,8 @@
+import 'dart:developer';
+import 'package:check_internet/Global/globals.dart' as globals;
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import '../Classes/Ping.dart';
 import '../Services/AdMobServices.dart';
 
 class categoryResults extends StatefulWidget {
@@ -9,18 +12,35 @@ class categoryResults extends StatefulWidget {
 
 class MyResultsState extends State<categoryResults> {
 
+  final BannerAd downBanner = BannerAd(
+    adUnitId: AdMobServices.BannerAdUnitId!,
+    size: AdSize.mediumRectangle,
+    request: AdRequest(),
+    listener: AdMobServices.bannerListener,
+  );
+
+  List<Widget> hostState = 
+  [
+    Icon(Icons.error, color: Colors.orangeAccent, size: 24),
+    Icon(Icons.error, color: Colors.orangeAccent, size: 24),
+    Icon(Icons.error, color: Colors.orangeAccent, size: 24),
+    Icon(Icons.error, color: Colors.orangeAccent, size: 24)
+  ];
+
   @override
   void initState() {
     super.initState();
     downBanner.load();
+    
+    for (var i = 0; i < globals.host.length; i++) {
+      var info = globals.host[i];
+      if(info['isAlive'] == true){
+        hostState[i] = Icon(Icons.check_circle, color: Colors.green, size: 24);
+      }else if(info['isAlive'] == false){
+        hostState[i] = Icon(Icons.check_circle, color: Colors.orangeAccent, size: 24);
+      }
+    }
   }
-
-  final BannerAd downBanner = BannerAd(
-  adUnitId: AdMobServices.BannerAdUnitId!,
-  size: AdSize.mediumRectangle,
-  request: AdRequest(),
-  listener: AdMobServices.bannerListener,
-  );
 
   @override
   Widget build(BuildContext context) {
@@ -96,13 +116,9 @@ class MyResultsState extends State<categoryResults> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.zero,
                   ),
-                  leading: Icon(
-                      Icons.router,
-                      color: Colors.blueGrey,
-                      size: 24
-                    ),
+                  leading: hostState[0],
                   trailing: IconButton(
-                    icon: new Icon(Icons.arrow_forward_ios),
+                    icon: new Icon(Icons.arrow_forward_ios, size: 20),
                     color: Color(0xff808080),
                     onPressed: () {
                       Navigator.pushNamed(context, '/fourth');
@@ -131,7 +147,7 @@ class MyResultsState extends State<categoryResults> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.zero,
                   ),
-                  leading: Icon(Icons.route_rounded, color: Colors.blueGrey, size: 24),
+                  leading: hostState[1],
                   trailing: Icon(Icons.arrow_forward_ios,
                       color: Color(0xff808080), size: 18),
                 ),
@@ -157,7 +173,7 @@ class MyResultsState extends State<categoryResults> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.zero,
                   ),
-                  leading: Icon(Icons.vpn_lock, color: Colors.blueGrey, size: 24),
+                  leading: hostState[2],
                   trailing: Icon(Icons.arrow_forward_ios,
                       color: Color(0xff808080), size: 18),
                 ),
@@ -183,7 +199,7 @@ class MyResultsState extends State<categoryResults> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.zero,
                   ),
-                  leading: Icon(Icons.language, color: Colors.blueGrey, size: 24),
+                  leading: hostState[3],
                   trailing: Icon(Icons.arrow_forward_ios,
                       color: Color(0xff808080), size: 18),
                 ),
