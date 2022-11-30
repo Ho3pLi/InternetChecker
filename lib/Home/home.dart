@@ -8,31 +8,35 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 
 class Home extends StatefulWidget {
+  const Home({super.key});
+
   @override
   MyHomeState createState() => MyHomeState();
 }
 
 class MyHomeState extends State<Home> {
-  @override
-  void initState() {
-    super.initState();
-    upBanner.load();
-    downBanner.load();
-  }
-
   final BannerAd upBanner = BannerAd(
   adUnitId: AdMobServices.BannerAdUnitId!,
   size: AdSize.banner,
-  request: AdRequest(),
+  request: const AdRequest(),
   listener: AdMobServices.bannerListener,
   );
 
   final BannerAd downBanner = BannerAd(
   adUnitId: AdMobServices.BannerAdUnitId!,
   size: AdSize.largeBanner,
-  request: AdRequest(),
+  request: const AdRequest(),
   listener: AdMobServices.bannerListener,
   );
+
+  bool visible = false;
+
+  @override
+  void initState() {
+    super.initState();
+    upBanner.load();
+    downBanner.load();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,10 +49,10 @@ class MyHomeState extends State<Home> {
         centerTitle: true,
         automaticallyImplyLeading: false,
         backgroundColor: Colors.blueGrey,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.zero,
         ),
-        title: Text(
+        title: const Text(
           "Internet Checker",
           style: TextStyle(
             fontWeight: FontWeight.w700,
@@ -57,7 +61,7 @@ class MyHomeState extends State<Home> {
             color: Colors.white,
           ),
         ),
-        actions: [
+        actions: const [
           Icon(Icons.notifications, color: Colors.white, size: 24),
         ],
       ),
@@ -65,94 +69,93 @@ class MyHomeState extends State<Home> {
         children: [
           Container(
             alignment: Alignment.center,
-            child: upAdWidget,
             width: upBanner.size.width.toDouble(),
             height: upBanner.size.height.toDouble(),
+            child: upAdWidget,
           ),
           Container(
             height: 300,
             width: 300,
-            margin: const EdgeInsets.only(left: 0, top: 70),
+            margin: const EdgeInsets.only(top: 70, bottom: 10),
             child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: GridView(children: [
+            child: GridView(gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisSpacing: 10, crossAxisSpacing: 10),children: [
               Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.grey),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                 Icon(Icons.router, size: 40, color: Colors.white),
                 Text("DFGW", style: TextStyle(color: Colors.white, fontSize: 20))
               ],),),
               Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.grey),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                 Icon(Icons.route_rounded, size: 40, color: Colors.white),
                 Text("WAN", style: TextStyle(color: Colors.white, fontSize: 20))
               ],),),
               Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.grey),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                 Icon(Icons.vpn_lock, size: 40, color: Colors.white),
                 Text("VPN", style: TextStyle(color: Colors.white, fontSize: 20))
               ],),),
               Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.grey),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                 Icon(Icons.language, size: 40, color: Colors.white),
                 Text("INTERNET", style: TextStyle(color: Colors.white, fontSize: 20))
               ],),),
-            ],
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisSpacing: 10, crossAxisSpacing: 10),),
+            ],),
           )),
-          Center(child: ElevatedButton(
+          Container(
+            margin: const EdgeInsets.only(bottom: 15),
+            child: AnimatedOpacity(
+              opacity: visible ? 1.0 : 0.0,
+              duration: const Duration(milliseconds: 500),
+              child: const CircularProgressIndicator(
+                backgroundColor: Colors.white,
+                strokeWidth: 6,
+              ),
+            ),
+          ),
+          Center(
+            child: ElevatedButton(
             onPressed: () {
               // TODO prima di lanciare i ping bisogna controllare se il dispositivo ha accesso a internet (https://bit.ly/3U0zJkb)
+              setState(() {
+                visible = !visible;
+              });
               Pinger().pingFirst();
               Pinger().pingSecond();
               Pinger().pingThird();
               Pinger().pingFourth();
-              // Timer(Duration(seconds: 2), () {
-              //   Pinger().pingSecond();
-              //   Timer(Duration(seconds: 2), () {
-              //     Pinger().pingThird();
-              //     Timer(Duration(seconds: 2), () {
-              //       Pinger().pingFourth();
-              //       Timer(Duration(seconds: 20), (){
-              //         for (var i = 0; i < 4; i++) {
-              //           log(globals.summaries[i].toString());
-              //         }
-              //         Navigator.pushNamed(context, '/third');
-              //       });
-              //     });
-              //   });
-              // });
-              Timer(Duration(seconds: 10), () {
+              Timer(const Duration(seconds: 10), () {
+                Timer(const Duration(seconds: 8), () {
+                  setState(() {
+                  visible = !visible;
+                });
+                });
                 for (var i = 0; i < 4; i++) {
-                  // log(globals.host[i].toString());
+                  //log(globals.host[i].toString());
                   log(globals.summaries[i].toString());
                 }
                 Navigator.pushNamed(context, '/third');
               });
             },
-            child: Text('Start Checking', style: TextStyle(color: Colors.black),),
               style: ElevatedButton.styleFrom(
               backgroundColor: Colors.white,
             ),
+            child: const Text('Start Checking', style: TextStyle(color: Colors.black),),
           ),),
-          // Visibility(child: CircularProgressIndicator(
-          //   value: ,
-          //   backgroundColor: Colors.white,
-          //   strokeWidth: 5,
-          // )),
           Container(
-            margin: const EdgeInsets.only(top: 40),
+            margin: const EdgeInsets.only(top: 20),
             alignment: Alignment.center,
-            child: downAdWidget,
             width: downBanner.size.width.toDouble(),
             height: downBanner.size.height.toDouble(),
+            child: downAdWidget,
           ),
         ],
       ),

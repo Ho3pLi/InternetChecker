@@ -1,45 +1,28 @@
-import 'dart:developer';
-import 'package:check_internet/Global/globals.dart' as globals;
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import '../Classes/Ping.dart';
 import '../Services/AdMobServices.dart';
+import 'package:check_internet/Global/globals.dart' as globals;
 
-class categoryResults extends StatefulWidget {
+class internetResults extends StatefulWidget {
   @override
   MyResultsState createState() => MyResultsState();
 }
 
-class MyResultsState extends State<categoryResults> {
+class MyResultsState extends State<internetResults> {
 
   final BannerAd downBanner = BannerAd(
-    adUnitId: AdMobServices.BannerAdUnitId!,
-    size: AdSize.mediumRectangle,
-    request: AdRequest(),
-    listener: AdMobServices.bannerListener,
+  adUnitId: AdMobServices.BannerAdUnitId!,
+  size: AdSize.mediumRectangle,
+  request: AdRequest(),
+  listener: AdMobServices.bannerListener,
   );
 
-  List<Widget> hostState = 
-  [
-    Icon(Icons.error, color: Colors.orangeAccent, size: 24),
-    Icon(Icons.error, color: Colors.orangeAccent, size: 24),
-    Icon(Icons.error, color: Colors.orangeAccent, size: 24),
-    Icon(Icons.error, color: Colors.orangeAccent, size: 24)
-  ];
+  Map<String, Object> info = globals.host[3];
 
   @override
   void initState() {
     super.initState();
     downBanner.load();
-    
-    for (var i = 0; i < globals.host.length; i++) {
-      var info = globals.host[i];
-      if(info['isAlive'] == true){
-        hostState[i] = Icon(Icons.check_circle, color: Colors.green, size: 24);
-      }else if(info['isAlive'] == false){
-        hostState[i] = Icon(Icons.check_circle, color: Colors.orangeAccent, size: 24);
-      }
-    }
   }
 
   @override
@@ -56,7 +39,7 @@ class MyResultsState extends State<categoryResults> {
           borderRadius: BorderRadius.zero,
         ),
         title: Text(
-          "Results",
+          "Internet",
           style: TextStyle(
             fontWeight: FontWeight.w700,
             fontStyle: FontStyle.normal,
@@ -68,7 +51,7 @@ class MyResultsState extends State<categoryResults> {
           icon: new Icon(Icons.arrow_back_ios),
           color: Color(0xffffffff),
           onPressed:() {
-            Navigator.pushNamed(context, '/second');
+            Navigator.pushNamed(context, '/third');
           },
         ),
       ),
@@ -85,7 +68,7 @@ class MyResultsState extends State<categoryResults> {
                 width: 16,
               ),
               Text(
-                "Results category",
+                "Internet category",
                 textAlign: TextAlign.start,
                 overflow: TextOverflow.clip,
                 style: TextStyle(
@@ -100,11 +83,11 @@ class MyResultsState extends State<categoryResults> {
                 child: ListTile(
                   tileColor: Color(0x00ffffff),
                   title: Text(
-                    "DFGW",
+                    "Package transmitted",
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
-                      fontSize: 16,
+                      fontSize: 15,
                       color: Color(0xff000000),
                     ),
                     textAlign: TextAlign.left,
@@ -116,13 +99,20 @@ class MyResultsState extends State<categoryResults> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.zero,
                   ),
-                  leading: hostState[0],
-                  trailing: IconButton(
-                    icon: new Icon(Icons.arrow_forward_ios, size: 20),
-                    color: Color(0xff808080),
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/fourth');
-                    },
+                  // leading: Icon(
+                  //     Icons.router,
+                  //     color: Colors.blueGrey,
+                  //     size: 24
+                  //   ),
+                  trailing: Text(
+                    info['packageTransmitted'].toString(),
+                    style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontStyle: FontStyle.normal,
+                      fontSize: 15,
+                      color: Color(0xff000000),
+                    ),
+                    textAlign: TextAlign.right,
                   ),
                 ),
               ),
@@ -131,11 +121,11 @@ class MyResultsState extends State<categoryResults> {
                 child: ListTile(
                   tileColor: Color(0x00ffffff),
                   title: Text(
-                    "WAN",
+                    "Package received",
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
-                      fontSize: 16,
+                      fontSize: 15,
                       color: Color(0xff000000),
                     ),
                     textAlign: TextAlign.left,
@@ -147,13 +137,16 @@ class MyResultsState extends State<categoryResults> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.zero,
                   ),
-                  leading: hostState[1],
-                  trailing: IconButton(
-                    icon: new Icon(Icons.arrow_forward_ios, size: 20),
-                    color: Color(0xff808080),
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/fifth');
-                    },
+                  // leading: Icon(Icons.route_rounded, color: Colors.blueGrey, size: 24),
+                  trailing: Text(
+                    info['packageReceived'].toString(),
+                    style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontStyle: FontStyle.normal,
+                      fontSize: 15,
+                      color: Color(0xff000000),
+                    ),
+                    textAlign: TextAlign.right,
                   ),
                 ),
               ),
@@ -162,11 +155,11 @@ class MyResultsState extends State<categoryResults> {
                 child: ListTile(
                   tileColor: Color(0x00ffffff),
                   title: Text(
-                    "VPN",
+                    "Time (ms)",
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
-                      fontSize: 16,
+                      fontSize: 15,
                       color: Color(0xff000000),
                     ),
                     textAlign: TextAlign.left,
@@ -178,13 +171,16 @@ class MyResultsState extends State<categoryResults> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.zero,
                   ),
-                  leading: hostState[2],
-                  trailing: IconButton(
-                    icon: new Icon(Icons.arrow_forward_ios, size: 20),
-                    color: Color(0xff808080),
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/sixth');
-                    },
+                  // leading: Icon(Icons.vpn_lock, color: Colors.blueGrey, size: 24),
+                  trailing: Text(
+                    info['time'].toString(),
+                    style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontStyle: FontStyle.normal,
+                      fontSize: 15,
+                      color: Color(0xff000000),
+                    ),
+                    textAlign: TextAlign.right,
                   ),
                 ),
               ),
@@ -193,11 +189,11 @@ class MyResultsState extends State<categoryResults> {
                 child: ListTile(
                   tileColor: Color(0x00ffffff),
                   title: Text(
-                    "INTERNET",
+                    "Jitter",
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
-                      fontSize: 16,
+                      fontSize: 15,
                       color: Color(0xff000000),
                     ),
                     textAlign: TextAlign.left,
@@ -209,14 +205,31 @@ class MyResultsState extends State<categoryResults> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.zero,
                   ),
-                  leading: hostState[3],
-                  trailing: IconButton(
-                    icon: new Icon(Icons.arrow_forward_ios, size: 20),
-                    color: Color(0xff808080),
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/seventh');
-                    },
+                  // leading: Icon(Icons.language, color: Colors.blueGrey, size: 24),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
+                child: ListTile(
+                  tileColor: Color(0x00ffffff),
+                  title: Text(
+                    "RTT",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontStyle: FontStyle.normal,
+                      fontSize: 15,
+                      color: Color(0xff000000),
+                    ),
+                    textAlign: TextAlign.left,
                   ),
+                  dense: true,
+                  contentPadding: EdgeInsets.all(0),
+                  selected: false,
+                  selectedTileColor: Color(0x42000000),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.zero,
+                  ),
+                  // leading: Icon(Icons.language, color: Colors.blueGrey, size: 24),
                 ),
               ),
               Container(

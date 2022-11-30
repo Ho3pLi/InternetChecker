@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import '../Services/AdMobServices.dart';
+import 'package:check_internet/Global/globals.dart' as globals;
 
 class dfgwResults extends StatefulWidget {
   @override
@@ -9,18 +10,20 @@ class dfgwResults extends StatefulWidget {
 
 class MyResultsState extends State<dfgwResults> {
 
-  @override
-  void initState() {
-    super.initState();
-    downBanner.load();
-  }
-
   final BannerAd downBanner = BannerAd(
   adUnitId: AdMobServices.BannerAdUnitId!,
   size: AdSize.mediumRectangle,
   request: AdRequest(),
   listener: AdMobServices.bannerListener,
   );
+
+  Map<String, Object> info = globals.host[0];
+
+  @override
+  void initState() {
+    super.initState();
+    downBanner.load();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,11 +83,11 @@ class MyResultsState extends State<dfgwResults> {
                 child: ListTile(
                   tileColor: Color(0x00ffffff),
                   title: Text(
-                    "DFGW",
+                    "Package transmitted",
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
-                      fontSize: 16,
+                      fontSize: 15,
                       color: Color(0xff000000),
                     ),
                     textAlign: TextAlign.left,
@@ -96,11 +99,21 @@ class MyResultsState extends State<dfgwResults> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.zero,
                   ),
-                  leading: Icon(
-                      Icons.router,
-                      color: Colors.blueGrey,
-                      size: 24
+                  // leading: Icon(
+                  //     Icons.router,
+                  //     color: Colors.blueGrey,
+                  //     size: 24
+                  //   ),
+                  trailing: Text(
+                    info['packageTransmitted'].toString(),
+                    style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontStyle: FontStyle.normal,
+                      fontSize: 15,
+                      color: Color(0xff000000),
                     ),
+                    textAlign: TextAlign.right,
+                  ),
                 ),
               ),
               Padding(
@@ -108,11 +121,11 @@ class MyResultsState extends State<dfgwResults> {
                 child: ListTile(
                   tileColor: Color(0x00ffffff),
                   title: Text(
-                    "WAN",
+                    "Package received",
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
-                      fontSize: 16,
+                      fontSize: 15,
                       color: Color(0xff000000),
                     ),
                     textAlign: TextAlign.left,
@@ -124,7 +137,17 @@ class MyResultsState extends State<dfgwResults> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.zero,
                   ),
-                  leading: Icon(Icons.route_rounded, color: Colors.blueGrey, size: 24),
+                  // leading: Icon(Icons.route_rounded, color: Colors.blueGrey, size: 24),
+                  trailing: Text(
+                    info['packageReceived'].toString(),
+                    style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontStyle: FontStyle.normal,
+                      fontSize: 15,
+                      color: Color(0xff000000),
+                    ),
+                    textAlign: TextAlign.right,
+                  ),
                 ),
               ),
               Padding(
@@ -132,11 +155,11 @@ class MyResultsState extends State<dfgwResults> {
                 child: ListTile(
                   tileColor: Color(0x00ffffff),
                   title: Text(
-                    "VPN",
+                    "Time (ms)",
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
-                      fontSize: 16,
+                      fontSize: 15,
                       color: Color(0xff000000),
                     ),
                     textAlign: TextAlign.left,
@@ -148,7 +171,17 @@ class MyResultsState extends State<dfgwResults> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.zero,
                   ),
-                  leading: Icon(Icons.vpn_lock, color: Colors.blueGrey, size: 24),
+                  // leading: Icon(Icons.vpn_lock, color: Colors.blueGrey, size: 24),
+                  trailing: Text(
+                    info['time'].toString(),
+                    style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontStyle: FontStyle.normal,
+                      fontSize: 15,
+                      color: Color(0xff000000),
+                    ),
+                    textAlign: TextAlign.right,
+                  ),
                 ),
               ),
               Padding(
@@ -156,11 +189,11 @@ class MyResultsState extends State<dfgwResults> {
                 child: ListTile(
                   tileColor: Color(0x00ffffff),
                   title: Text(
-                    "INTERNET",
+                    "Jitter",
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
-                      fontSize: 16,
+                      fontSize: 15,
                       color: Color(0xff000000),
                     ),
                     textAlign: TextAlign.left,
@@ -172,7 +205,31 @@ class MyResultsState extends State<dfgwResults> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.zero,
                   ),
-                  leading: Icon(Icons.language, color: Colors.blueGrey, size: 24),
+                  // leading: Icon(Icons.language, color: Colors.blueGrey, size: 24),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
+                child: ListTile(
+                  tileColor: Color(0x00ffffff),
+                  title: Text(
+                    "RTT",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontStyle: FontStyle.normal,
+                      fontSize: 15,
+                      color: Color(0xff000000),
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  dense: true,
+                  contentPadding: EdgeInsets.all(0),
+                  selected: false,
+                  selectedTileColor: Color(0x42000000),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.zero,
+                  ),
+                  // leading: Icon(Icons.language, color: Colors.blueGrey, size: 24),
                 ),
               ),
               Container(

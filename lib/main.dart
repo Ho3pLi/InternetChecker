@@ -1,7 +1,10 @@
 import 'package:check_internet/GetStarted/getStarted.dart';
 import 'package:check_internet/Home/home.dart';
+import 'package:check_internet/Results/cResults.dart';
 import 'package:check_internet/Results/categoryResults.dart';
 import 'package:check_internet/Results/dfgwResults.dart';
+import 'package:check_internet/Results/internetResults.dart';
+import 'package:check_internet/Results/wanResults.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
@@ -19,13 +22,16 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Internet Checker',
       initialRoute: '/',
       routes: {
       '/': (context) => GetStarted(),
       '/second': (context) => Home(),
       '/third':(context) => categoryResults(),
       '/fourth':(context) => dfgwResults(),
+      '/fifth':(context) => wanResults(),
+      '/sixth':(context) => cResults(),
+      '/seventh':(context) => internetResults()
       },
     );
   }
