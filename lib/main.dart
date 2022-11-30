@@ -25,13 +25,13 @@ class App extends StatelessWidget {
       title: 'Internet Checker',
       initialRoute: '/',
       routes: {
-      '/': (context) => GetStarted(),
+      '/': (context) => const GetStarted(),
       '/second': (context) => const Home(),
-      '/third':(context) => categoryResults(),
-      '/fourth':(context) => dfgwResults(),
-      '/fifth':(context) => wanResults(),
-      '/sixth':(context) => cResults(),
-      '/seventh':(context) => internetResults()
+      '/third':(context) => const categoryResults(),
+      '/fourth':(context) => const dfgwResults(),
+      '/fifth':(context) => const wanResults(),
+      '/sixth':(context) => const cResults(),
+      '/seventh':(context) => const internetResults()
       },
     );
   }

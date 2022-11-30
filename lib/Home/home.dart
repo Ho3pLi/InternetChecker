@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:developer';
 import 'package:check_internet/Global/globals.dart' as globals;
-import 'package:check_internet/Classes/Ping.dart';
+import 'package:check_internet/Classes/ping.dart';
 import 'package:check_internet/Services/AdMobServices.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
