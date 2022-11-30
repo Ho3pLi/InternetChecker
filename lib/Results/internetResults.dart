@@ -4,6 +4,8 @@ import '../Services/AdMobServices.dart';
 import 'package:check_internet/Global/globals.dart' as globals;
 
 class internetResults extends StatefulWidget {
+  const internetResults({super.key});
+
   @override
   MyResultsState createState() => MyResultsState();
 }
@@ -13,7 +15,7 @@ class MyResultsState extends State<internetResults> {
   final BannerAd downBanner = BannerAd(
   adUnitId: AdMobServices.BannerAdUnitId!,
   size: AdSize.mediumRectangle,
-  request: AdRequest(),
+  request: const AdRequest(),
   listener: AdMobServices.bannerListener,
   );
 
@@ -29,16 +31,16 @@ class MyResultsState extends State<internetResults> {
   Widget build(BuildContext context) {
     final AdWidget downAdWidget = AdWidget(ad: downBanner);
     return Scaffold(
-      backgroundColor: Color(0xffffffff),
+      backgroundColor: const Color(0xffffffff),
       appBar: AppBar(
         elevation: 4,
         centerTitle: true,
         automaticallyImplyLeading: false,
         backgroundColor: Colors.blueGrey,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.zero,
         ),
-        title: Text(
+        title: const Text(
           "Internet",
           style: TextStyle(
             fontWeight: FontWeight.w700,
@@ -48,26 +50,26 @@ class MyResultsState extends State<internetResults> {
           ),
         ),
         leading: IconButton(
-          icon: new Icon(Icons.arrow_back_ios),
-          color: Color(0xffffffff),
+          icon: const Icon(Icons.arrow_back_ios),
+          color: const Color(0xffffffff),
           onPressed:() {
             Navigator.pushNamed(context, '/third');
           },
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(vertical: 0, horizontal: 16),
+        padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 16),
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.max,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 16,
                 width: 16,
               ),
-              Text(
+              const Text(
                 "Internet category",
                 textAlign: TextAlign.start,
                 overflow: TextOverflow.clip,
@@ -79,10 +81,10 @@ class MyResultsState extends State<internetResults> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
+                padding: const EdgeInsets.fromLTRB(0, 16, 0, 0),
                 child: ListTile(
-                  tileColor: Color(0x00ffffff),
-                  title: Text(
+                  tileColor: const Color(0x00ffffff),
+                  title: const Text(
                     "Package transmitted",
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
@@ -93,10 +95,10 @@ class MyResultsState extends State<internetResults> {
                     textAlign: TextAlign.left,
                   ),
                   dense: true,
-                  contentPadding: EdgeInsets.all(0),
+                  contentPadding: const EdgeInsets.all(0),
                   selected: false,
-                  selectedTileColor: Color(0x42000000),
-                  shape: RoundedRectangleBorder(
+                  selectedTileColor: const Color(0x42000000),
+                  shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.zero,
                   ),
                   // leading: Icon(
@@ -106,7 +108,7 @@ class MyResultsState extends State<internetResults> {
                   //   ),
                   trailing: Text(
                     info['packageTransmitted'].toString(),
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
                       fontSize: 15,
@@ -117,10 +119,10 @@ class MyResultsState extends State<internetResults> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
+                padding: const EdgeInsets.fromLTRB(0, 16, 0, 0),
                 child: ListTile(
-                  tileColor: Color(0x00ffffff),
-                  title: Text(
+                  tileColor: const Color(0x00ffffff),
+                  title: const Text(
                     "Package received",
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
@@ -131,16 +133,16 @@ class MyResultsState extends State<internetResults> {
                     textAlign: TextAlign.left,
                   ),
                   dense: true,
-                  contentPadding: EdgeInsets.all(0),
+                  contentPadding: const EdgeInsets.all(0),
                   selected: false,
-                  selectedTileColor: Color(0x42000000),
-                  shape: RoundedRectangleBorder(
+                  selectedTileColor: const Color(0x42000000),
+                  shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.zero,
                   ),
                   // leading: Icon(Icons.route_rounded, color: Colors.blueGrey, size: 24),
                   trailing: Text(
                     info['packageReceived'].toString(),
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
                       fontSize: 15,
@@ -151,10 +153,10 @@ class MyResultsState extends State<internetResults> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
+                padding: const EdgeInsets.fromLTRB(0, 16, 0, 0),
                 child: ListTile(
-                  tileColor: Color(0x00ffffff),
-                  title: Text(
+                  tileColor: const Color(0x00ffffff),
+                  title: const Text(
                     "Time (ms)",
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
@@ -165,16 +167,16 @@ class MyResultsState extends State<internetResults> {
                     textAlign: TextAlign.left,
                   ),
                   dense: true,
-                  contentPadding: EdgeInsets.all(0),
+                  contentPadding: const EdgeInsets.all(0),
                   selected: false,
-                  selectedTileColor: Color(0x42000000),
-                  shape: RoundedRectangleBorder(
+                  selectedTileColor: const Color(0x42000000),
+                  shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.zero,
                   ),
                   // leading: Icon(Icons.vpn_lock, color: Colors.blueGrey, size: 24),
                   trailing: Text(
                     info['time'].toString(),
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
                       fontSize: 15,
@@ -184,7 +186,7 @@ class MyResultsState extends State<internetResults> {
                   ),
                 ),
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
                 child: ListTile(
                   tileColor: Color(0x00ffffff),
@@ -208,7 +210,7 @@ class MyResultsState extends State<internetResults> {
                   // leading: Icon(Icons.language, color: Colors.blueGrey, size: 24),
                 ),
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
                 child: ListTile(
                   tileColor: Color(0x00ffffff),
@@ -235,9 +237,9 @@ class MyResultsState extends State<internetResults> {
               Container(
             margin: const EdgeInsets.only(top: 40, left: 30),
             alignment: Alignment.center,
-            child: downAdWidget,
             width: downBanner.size.width.toDouble(),
             height: downBanner.size.height.toDouble(),
+            child: downAdWidget,
           ),
             ],
           ),

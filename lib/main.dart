@@ -26,7 +26,7 @@ class App extends StatelessWidget {
       initialRoute: '/',
       routes: {
       '/': (context) => GetStarted(),
-      '/second': (context) => Home(),
+      '/second': (context) => const Home(),
       '/third':(context) => categoryResults(),
       '/fourth':(context) => dfgwResults(),
       '/fifth':(context) => wanResults(),
