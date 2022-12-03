@@ -5,10 +5,10 @@ class CheckConnectivity {
   Future<bool> checkConnectivityState() async {
     final ConnectivityResult result = await Connectivity().checkConnectivity();
     bool isConnected = false;
-
-    if (result == ConnectivityResult.wifi || result == ConnectivityResult.mobile) {
+    
+    if (result == ConnectivityResult.wifi || result == ConnectivityResult.mobile || result == ConnectivityResult.vpn) {
       isConnected = true;
-    } else {
+    } else if (result == ConnectivityResult.none) {
       print('Not connected to any network');
     }
 

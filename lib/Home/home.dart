@@ -5,7 +5,8 @@ import 'package:check_internet/Classes/ping.dart';
 import 'package:check_internet/Services/AdMobServices.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-
+import 'package:check_internet/Classes/checkConnectivity.dart';
+import 'package:app_settings/app_settings.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -30,6 +31,7 @@ class MyHomeState extends State<Home> {
   );
 
   bool visible = false;
+  bool isConnected = false;
 
   @override
   void initState() {
@@ -123,27 +125,54 @@ class MyHomeState extends State<Home> {
           ),
           Center(
             child: ElevatedButton(
-            onPressed: () {
-              // TODO prima di lanciare i ping bisogna controllare se il dispositivo ha accesso a internet (https://bit.ly/3U0zJkb)
+            onPressed: () async {
+              isConnected = await CheckConnectivity().checkConnectivityState();
               setState(() {
-                visible = !visible;
+                isConnected;
               });
-              Pinger().pingFirst();
-              Pinger().pingSecond();
-              Pinger().pingThird();
-              Pinger().pingFourth();
-              Timer(const Duration(seconds: 10), () {
-                Timer(const Duration(seconds: 8), () {
-                  setState(() {
+              if(isConnected == true){
+                setState(() {
                   visible = !visible;
                 });
+                Pinger().pingFirst();
+                Pinger().pingSecond();
+                Pinger().pingThird();
+                Pinger().pingFourth();
+                Timer(const Duration(seconds: 10), () {
+                  Timer(const Duration(seconds: 8), () {
+                    setState(() {
+                      visible = !visible;
+                    });
+                  });
+                  for (var i = 0; i < 4; i++) {
+                    //log(globals.host[i].toString());
+                    log(globals.summaries[i].toString());
+                  }
+                  Navigator.pushNamed(context, '/third');
                 });
-                for (var i = 0; i < 4; i++) {
-                  //log(globals.host[i].toString());
-                  log(globals.summaries[i].toString());
-                }
-                Navigator.pushNamed(context, '/third');
-              });
+              } else {
+                showDialog(
+                  context: context,
+                  builder: ((context) => AlertDialog(
+                    title: Text('NETWORK ERROR'),
+                    content: Text('This app needs internet access to work! Activate it from the settings.'),
+                    actions: [
+                      TextButton(
+                        onPressed: (() {
+                          Navigator.pop(context);
+                        }),
+                        child: Text('CAANCEL')
+                      ),
+                      TextButton(
+                        onPressed: (() {
+                          AppSettings.openWirelessSettings();
+                        }),
+                        child: Text('SETTINGS')
+                      )
+                    ],
+                  ))
+                );
+              }
             },
               style: ElevatedButton.styleFrom(
               backgroundColor: Colors.white,
