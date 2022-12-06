@@ -155,13 +155,13 @@ class MyHomeState extends State<Home> {
                   context: context,
                   builder: ((context) => AlertDialog(
                     title: Text('NETWORK ERROR'),
-                    content: Text('This app needs internet access to work! Activate it from the settings.'),
+                    content: Text('This app needs internet access to work!\nActivate it from the settings.'),
                     actions: [
                       TextButton(
                         onPressed: (() {
                           Navigator.pop(context);
                         }),
-                        child: Text('CAANCEL')
+                        child: Text('CANCEL')
                       ),
                       TextButton(
                         onPressed: (() {
