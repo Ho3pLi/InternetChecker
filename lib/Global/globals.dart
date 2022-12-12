@@ -1,9 +1,11 @@
 library check_internet.globals;
 
+import 'package:check_internet/Classes/networkInfo.dart';
+
 List<Map<String, Object>> host = [
   {
     'name': 'DEFGW',
-    'addr': '192.168.1.1',
+    'addr': Network().getGatewayIp(),
     'isAlive': false,
     'packageTransmitted': '',
     'packageReceived': '',
