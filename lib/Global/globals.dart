@@ -4,8 +4,8 @@ import 'package:check_internet/Classes/networkInfo.dart';
 
 List<Map<String, Object>> host = [
   {
-    'name': 'DEFGW',
-    'addr': Network().getGatewayIp(),
+    'name': 'xxxx',
+    'addr': 'x.x.x.x',
     'isAlive': false,
     'packageTransmitted': '',
     'packageReceived': '',

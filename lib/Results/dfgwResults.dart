@@ -1,3 +1,4 @@
+import 'package:check_internet/Classes/networkInfo.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import '../Services/AdMobServices.dart';
@@ -40,9 +41,9 @@ class MyResultsState extends State<dfgwResults> {
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.zero,
         ),
-        title: const Text(
-          "Default Gateaway",
-          style: TextStyle(
+        title: Text(
+          info['name'].toString(),
+          style: const TextStyle(
             fontWeight: FontWeight.w700,
             fontStyle: FontStyle.normal,
             fontSize: 20,
