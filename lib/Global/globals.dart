@@ -1,5 +1,7 @@
 library check_internet.globals;
 
+import 'dart:ffi';
+
 import 'package:check_internet/Classes/networkInfo.dart';
 
 List<Map<String, Object>> host = [
@@ -14,7 +16,7 @@ List<Map<String, Object>> host = [
     'rtt': 0
   },
   {
-    'name': 'WAN',
+    'name': 'xxxx',
     'addr': '127.0.0.1',
     'isAlive': false,
     'packageTransmitted': '',
@@ -24,7 +26,7 @@ List<Map<String, Object>> host = [
     'rtt': 0
   },
   {
-    'name': 'VPN',
+    'name': 'xxxx',
     'addr': '8.8.8.8',
     'isAlive': false,
     'packageTransmitted': '',
@@ -34,7 +36,7 @@ List<Map<String, Object>> host = [
     'rtt': 0
   },
   {
-    'name': 'INTERNET',
+    'name': 'xxxx',
     'addr': '151.7.86.183',
     'isAlive': false,
     'packageTransmitted': '',
@@ -46,3 +48,5 @@ List<Map<String, Object>> host = [
 ];
 
 List<String> summaries = [];
+
+String networkType = '';

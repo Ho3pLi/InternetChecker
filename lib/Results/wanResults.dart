@@ -40,9 +40,9 @@ class MyResultsState extends State<wanResults> {
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.zero,
         ),
-        title: const Text(
-          "Wide Area Network",
-          style: TextStyle(
+        title: Text(
+          info['name'].toString(),
+          style: const TextStyle(
             fontWeight: FontWeight.w700,
             fontStyle: FontStyle.normal,
             fontSize: 20,

@@ -40,9 +40,9 @@ class MyResultsState extends State<internetResults> {
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.zero,
         ),
-        title: const Text(
-          "Internet",
-          style: TextStyle(
+        title: Text(
+          info['name'].toString(),
+          style: const TextStyle(
             fontWeight: FontWeight.w700,
             fontStyle: FontStyle.normal,
             fontSize: 20,

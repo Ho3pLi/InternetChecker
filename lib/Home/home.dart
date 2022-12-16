@@ -34,7 +34,7 @@ class MyHomeState extends State<Home> {
   bool visible = false;
   bool isConnected = false;
   bool serviceEnabled = false;
-  bool gpsPermission = false;
+  late LocationPermission gpsPermission;
 
   @override
   void initState() {
@@ -129,18 +129,42 @@ class MyHomeState extends State<Home> {
           Center(
             child: ElevatedButton(
               onPressed: () async {
-                log(LocationPermission.always.toString());
                 serviceEnabled = await Geolocator.isLocationServiceEnabled();
                 setState(() {
                   serviceEnabled;
                 });
-                if(gpsPermission != LocationPermission.always || gpsPermission != LocationPermission.whileInUse){
-                  setState(() {
-                    gpsPermission = true;
-                  });
-                }
+                gpsPermission = await Geolocator.checkPermission();
+                setState(() {
+                  gpsPermission;
+                });
                 if(serviceEnabled){
-                  if(gpsPermission == true){
+                  if(gpsPermission == LocationPermission.denied){
+                    gpsPermission = await Geolocator.requestPermission();
+                  }
+                  if(gpsPermission == LocationPermission.denied || gpsPermission == LocationPermission.deniedForever){
+                    showDialog(
+                    context: context,
+                    builder: ((context) => AlertDialog(
+                      title: Text('GPS ERROR'),
+                      content: Text('This app needs location access to work!\nActivate it from the settings.'),
+                      actions: [
+                        TextButton(
+                          onPressed: (() {
+                            Navigator.pop(context);
+                          }),
+                          child: Text('CANCEL')
+                        ),
+                        TextButton(
+                          onPressed: (() {
+                            AppSettings.openLocationSettings();
+                          }),
+                          child: Text('SETTINGS')
+                        )
+                      ],
+                    ))
+                  );
+                  }
+                  if(gpsPermission == LocationPermission.always || gpsPermission == LocationPermission.whileInUse) {
                     isConnected = await CheckConnectivity().checkConnectivityState();
                     setState(() {
                       isConnected;
@@ -188,8 +212,6 @@ class MyHomeState extends State<Home> {
                         ))
                       );
                     }
-                  } else {
-                    Geolocator.requestPermission();
                   }
                 } else {
                   showDialog(

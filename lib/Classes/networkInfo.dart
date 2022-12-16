@@ -19,7 +19,7 @@ class Network {
       wifiName = null;
     }
 
-    return wifiName;
+    return wifiName?.replaceAll('\"', '');
   }
 
   Future<String?> getGatewayIp() async {
