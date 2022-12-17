@@ -1,9 +1,5 @@
 library check_internet.globals;
 
-import 'dart:ffi';
-
-import 'package:check_internet/Classes/networkInfo.dart';
-
 List<Map<String, Object>> host = [
   {
     'name': 'xxxx',

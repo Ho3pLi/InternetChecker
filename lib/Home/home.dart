@@ -31,6 +31,10 @@ class MyHomeState extends State<Home> {
   listener: AdMobServices.bannerListener,
   );
 
+  Icon dfgwIcon = Icon(Icons.router, size: 40, color: Colors.white);
+  Text dfgwText = Text("DFGW", style: TextStyle(color: Colors.white, fontSize: 20));
+  Icon wanIcon = Icon(Icons.route_rounded, size: 40, color: Colors.white);
+  Text wanText = Text("WAN", style: TextStyle(color: Colors.white, fontSize: 20));
   bool visible = false;
   bool isConnected = false;
   bool serviceEnabled = false;
@@ -41,6 +45,10 @@ class MyHomeState extends State<Home> {
     super.initState();
     upBanner.load();
     downBanner.load();
+    if(globals.networkType == 'mobile'){
+      dfgwIcon = Icon(Icons.router, size: 40, color: Colors.grey);
+      dfgwText = Text("DFGW", style: TextStyle(color: Colors.grey, fontSize: 20));
+    }
   }
 
   @override
@@ -85,28 +93,28 @@ class MyHomeState extends State<Home> {
             child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: GridView(gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisSpacing: 10, crossAxisSpacing: 10),children: [
-              Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.grey),
+              Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.blue),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                Icon(Icons.router, size: 40, color: Colors.white),
-                Text("DFGW", style: TextStyle(color: Colors.white, fontSize: 20))
+                children: [
+                dfgwIcon,
+                dfgwText
               ],),),
-              Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.grey),
+              Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.blue),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                Icon(Icons.route_rounded, size: 40, color: Colors.white),
-                Text("WAN", style: TextStyle(color: Colors.white, fontSize: 20))
+                children: [
+                wanIcon,
+                wanText
               ],),),
-              Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.grey),
+              Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.blue),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
                 Icon(Icons.vpn_lock, size: 40, color: Colors.white),
                 Text("VPN", style: TextStyle(color: Colors.white, fontSize: 20))
               ],),),
-              Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.grey),
+              Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.blue),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
@@ -173,8 +181,10 @@ class MyHomeState extends State<Home> {
                       setState(() {
                         visible = !visible;
                       });
-                      Pinger().pingFirst();
-                      Pinger().pingSecond();
+                      if(globals.networkType != 'mobile'){
+                        Pinger().pingFirst();
+                        Pinger().pingSecond();
+                      }
                       Pinger().pingThird();
                       Pinger().pingFourth();
                       Timer(const Duration(seconds: 10), () {
