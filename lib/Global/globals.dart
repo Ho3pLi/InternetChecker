@@ -45,4 +45,7 @@ List<Map<String, Object>> host = [
 
 List<String> summaries = [];
 
-String networkType = '';
+Map<String, Object> data = {
+  'networkType' : '',
+  'isConnected' : false
+};

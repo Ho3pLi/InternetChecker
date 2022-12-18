@@ -6,13 +6,6 @@ class Network {
   Future<String?> getNetworkName() async {
     String? wifiName;
 
-    // if (permission == LocationPermission.denied) {
-    //   permission = await Geolocator.requestPermission();
-    //   if (permission == LocationPermission.denied) {
-    //     return 'permissionDenied';
-    //   }
-    // }
-
     if(NetworkInfo().getWifiName() != null){
       wifiName = await NetworkInfo().getWifiName();
     }else{

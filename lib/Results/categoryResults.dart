@@ -37,7 +37,12 @@ class MyResultsState extends State<categoryResults> {
       if(info['isAlive'] == true){
         hostState[i] = const Icon(Icons.check_circle, color: Colors.green, size: 24);
       }else if(info['isAlive'] == false){
-        hostState[i] = const Icon(Icons.check_circle, color: Colors.orangeAccent, size: 24);
+        if(globals.data['networkType'] == 'mobile'){
+          hostState[0] = const Icon(Icons.cancel_rounded, color: Colors.redAccent, size: 24);
+          hostState[1] = const Icon(Icons.cancel_rounded, color: Colors.redAccent, size: 24);
+        }else{
+          hostState[i] = const Icon(Icons.check_circle, color: Colors.orangeAccent, size: 24);
+        }
       }
     }
   }

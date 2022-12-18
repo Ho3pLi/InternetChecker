@@ -36,7 +36,6 @@ class MyHomeState extends State<Home> {
   Icon wanIcon = Icon(Icons.route_rounded, size: 40, color: Colors.white);
   Text wanText = Text("WAN", style: TextStyle(color: Colors.white, fontSize: 20));
   bool visible = false;
-  bool isConnected = false;
   bool serviceEnabled = false;
   late LocationPermission gpsPermission;
 
@@ -45,9 +44,11 @@ class MyHomeState extends State<Home> {
     super.initState();
     upBanner.load();
     downBanner.load();
-    if(globals.networkType == 'mobile'){
+    if(globals.data['networkType'] == 'mobile'){
       dfgwIcon = Icon(Icons.router, size: 40, color: Colors.grey);
       dfgwText = Text("DFGW", style: TextStyle(color: Colors.grey, fontSize: 20));
+      wanIcon = Icon(Icons.route_rounded, size: 40, color: Colors.grey);
+      wanText = Text("WAN", style: TextStyle(color: Colors.grey, fontSize: 20));
     }
   }
 
@@ -173,15 +174,14 @@ class MyHomeState extends State<Home> {
                   );
                   }
                   if(gpsPermission == LocationPermission.always || gpsPermission == LocationPermission.whileInUse) {
-                    isConnected = await CheckConnectivity().checkConnectivityState();
                     setState(() {
-                      isConnected;
+                      globals.data['isConnected'];
                     });
-                    if(isConnected){
+                    if(globals.data['isConnected'] == true){
                       setState(() {
                         visible = !visible;
                       });
-                      if(globals.networkType != 'mobile'){
+                      if(globals.data['networkType'] != 'mobile'){
                         Pinger().pingFirst();
                         Pinger().pingSecond();
                       }
@@ -193,7 +193,7 @@ class MyHomeState extends State<Home> {
                             visible = !visible;
                           });
                         });
-                        for (var i = 0; i < 4; i++) {
+                        for (var i = 0; i < 2; i++) {
                           //log(globals.host[i].toString());
                           log(globals.summaries[i].toString());
                         }

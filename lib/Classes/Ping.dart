@@ -18,8 +18,8 @@ class Pinger {
         var received = event.summary!.received.toString();
         var time = event.summary!.time!.inMilliseconds;
         if(event.summary?.received != 0){
-          if(globals.networkType == 'mobile'){
-            globals.host[0].update('name', (value) => carrierInfo.toString());
+          if(globals.data['networkType'] == 'mobile'){
+            globals.host[0].update('name', (value) => 'Not Avaible');
           }else{
             globals.host[0].update('name', (value) => hostName.toString());
           }
@@ -29,7 +29,7 @@ class Pinger {
           globals.host[0].update('packageReceived', (value) => received);
           globals.host[0].update('time', (value) => time);
         }else if(event.summary?.received == 0){
-          if(globals.networkType == 'mobile'){
+          if(globals.data['networkType'] == 'mobile'){
             globals.host[0].update('name', (value) => carrierInfo.toString());
           }else{
             globals.host[0].update('name', (value) => hostName.toString());
@@ -56,8 +56,8 @@ class Pinger {
         var received = event.summary!.received.toString();
         var time = event.summary!.time!.inMilliseconds;
         if(event.summary?.received != 0){
-          if(globals.networkType == 'mobile'){
-            globals.host[1].update('name', (value) => carrierInfo.toString());
+          if(globals.data['networkType'] == 'mobile'){
+            globals.host[1].update('name', (value) => 'Not Avaible');
           }else{
             globals.host[1].update('name', (value) => hostName.toString());
           }
@@ -66,7 +66,7 @@ class Pinger {
           globals.host[1].update('packageReceived', (value) => received);
           globals.host[1].update('time', (value) => time);
         }else if(event.summary?.received == 0){
-          if(globals.networkType == 'mobile'){
+          if(globals.data['networkType'] == 'mobile'){
             globals.host[1].update('name', (value) => carrierInfo.toString());
           }else{
             globals.host[1].update('name', (value) => hostName.toString());
@@ -92,7 +92,7 @@ class Pinger {
         var received = event.summary!.received.toString();
         var time = event.summary!.time!.inMilliseconds;
         if(event.summary?.received != 0){
-          if(globals.networkType == 'mobile'){
+          if(globals.data['networkType'] == 'mobile'){
             globals.host[2].update('name', (value) => carrierInfo.toString());
           }else{
             globals.host[2].update('name', (value) => hostName.toString());
@@ -102,7 +102,7 @@ class Pinger {
           globals.host[2].update('packageReceived', (value) => received);
           globals.host[2].update('time', (value) => time);
         }else if(event.summary?.received == 0){
-          if(globals.networkType == 'mobile'){
+          if(globals.data['networkType'] == 'mobile'){
             globals.host[2].update('name', (value) => carrierInfo.toString());
           }else{
             globals.host[2].update('name', (value) => hostName.toString());
@@ -128,7 +128,7 @@ class Pinger {
         var received = event.summary!.received.toString();
         var time = event.summary!.time!.inMilliseconds;
         if(event.summary?.received != 0){
-          if(globals.networkType == 'mobile'){
+          if(globals.data['networkType'] == 'mobile'){
             globals.host[3].update('name', (value) => carrierInfo.toString());
           }else{
             globals.host[3].update('name', (value) => hostName.toString());
@@ -138,7 +138,7 @@ class Pinger {
           globals.host[3].update('packageReceived', (value) => received);
           globals.host[3].update('time', (value) => time);
         }else if(event.summary?.received == 0){
-          if(globals.networkType == 'mobile'){
+          if(globals.data['networkType'] == 'mobile'){
             globals.host[3].update('name', (value) => carrierInfo.toString());
           }else{
             globals.host[3].update('name', (value) => hostName.toString());
