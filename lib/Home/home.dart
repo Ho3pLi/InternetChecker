@@ -5,7 +5,6 @@ import 'package:check_internet/Classes/ping.dart';
 import 'package:check_internet/Services/AdMobServices.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:check_internet/Classes/checkConnectivity.dart';
 import 'package:app_settings/app_settings.dart';
 import 'package:geolocator/geolocator.dart';
 

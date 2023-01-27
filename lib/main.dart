@@ -1,5 +1,5 @@
 import 'dart:developer';
-
+import 'package:permission_handler/permission_handler.dart';
 import 'package:check_internet/GetStarted/getStarted.dart';
 import 'package:check_internet/Home/home.dart';
 import 'package:check_internet/Results/cResults.dart';
@@ -9,7 +9,7 @@ import 'package:check_internet/Results/internetResults.dart';
 import 'package:check_internet/Results/wanResults.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'Classes/checkConnectivity.dart';
+import 'Classes/networkInfo.dart';
 import 'Global/globals.dart' as globals;
 
 void main() {
@@ -23,14 +23,22 @@ void main() {
 class App extends StatelessWidget {
   const App({super.key});
 
-  Future<void> setIsConnected () async {
-    var isConnected = await CheckConnectivity().checkConnectivityState();
+  Future<void> setUpPermissions() async {
+    await [
+      Permission.phone,
+      Permission.sms,
+    ].request();
+  }
+
+  Future<void> setIsConnected() async {
+    var isConnected = await Network().checkConnectivityState();
     globals.data.update('isConnected', (value) => isConnected);
   }
 
   @override
   Widget build(BuildContext context) {
     setIsConnected();
+    setUpPermissions();
     return MaterialApp(
       title: 'Internet Checker',
       initialRoute: '/',

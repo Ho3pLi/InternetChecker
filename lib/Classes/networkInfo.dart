@@ -1,5 +1,7 @@
+import 'package:carrier_info/carrier_info.dart';
 import 'package:network_info_plus/network_info_plus.dart';
-import 'package:geolocator/geolocator.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:check_internet/Global/globals.dart' as globals;
 
 class Network {
 
@@ -25,5 +27,25 @@ class Network {
     }
 
     return gatewayIp;
+  }
+
+  Future<bool> checkConnectivityState() async {
+    final ConnectivityResult result = await Connectivity().checkConnectivity();
+    bool isConnected = false;
+    
+    if (result == ConnectivityResult.wifi || result == ConnectivityResult.mobile || result == ConnectivityResult.vpn) {
+      isConnected = true;
+      globals.data['networkType'] = result.name;
+    } else if (result == ConnectivityResult.none) {
+      print('Not connected to any network');
+    }
+
+    return isConnected;
+  }
+
+  Future<String> getCarrierName() async {
+    AndroidCarrierData? carrierInfo = await CarrierInfo.getAndroidInfo();
+    String carrierName = carrierInfo!.telephonyInfo[0].carrierName;
+    return carrierName;
   }
 }

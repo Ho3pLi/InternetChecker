@@ -1,5 +1,4 @@
 import 'package:carrier_info/carrier_info.dart';
-import 'package:check_internet/Classes/checkConnectivity.dart';
 import 'package:check_internet/Classes/networkInfo.dart';
 import 'package:check_internet/Global/globals.dart' as globals;
 import 'package:dart_ping/dart_ping.dart';
@@ -9,7 +8,7 @@ class Pinger {
   Future<void> pingFirst() async {
     var hostName = await Network().getNetworkName();
     var hostAddr = await Network().getGatewayIp();
-    String? carrierInfo = await CarrierInfo.carrierName;
+    var carrierName = await Network().getCarrierName();
     final ping = Ping(hostAddr!, count: 5); // TODO cambiare il numero di ping
     ping.stream.listen((event) {
       if(event.summary != null){
@@ -30,7 +29,7 @@ class Pinger {
           globals.host[0].update('time', (value) => time);
         }else if(event.summary?.received == 0){
           if(globals.data['networkType'] == 'mobile'){
-            globals.host[0].update('name', (value) => carrierInfo.toString());
+            globals.host[0].update('name', (value) => carrierName.toString());
           }else{
             globals.host[0].update('name', (value) => hostName.toString());
           }
@@ -46,7 +45,7 @@ class Pinger {
   Future<void> pingSecond() async {
     var hostName = await Network().getNetworkName();
     var hostInfo = globals.host[1];
-    String? carrierInfo = await CarrierInfo.carrierName;
+    var carrierName = await Network().getCarrierName();
     final ping = Ping(hostInfo['addr'].toString(), count: 5); // TODO cambiare il numero di ping
     ping.stream.listen((event) {
       var y = globals.summaries;
@@ -67,7 +66,7 @@ class Pinger {
           globals.host[1].update('time', (value) => time);
         }else if(event.summary?.received == 0){
           if(globals.data['networkType'] == 'mobile'){
-            globals.host[1].update('name', (value) => carrierInfo.toString());
+            globals.host[1].update('name', (value) => carrierName.toString());
           }else{
             globals.host[1].update('name', (value) => hostName.toString());
           }
@@ -83,7 +82,7 @@ class Pinger {
   Future<void> pingThird() async {
     var hostName = await Network().getNetworkName();
     var hostInfo = globals.host[2];
-    String? carrierInfo = await CarrierInfo.carrierName;
+    var carrierName = await Network().getCarrierName();
     final ping = Ping(hostInfo['addr'].toString(), count: 5); // TODO cambiare il numero di ping
     ping.stream.listen((event) {
       if(event.summary != null){
@@ -93,7 +92,7 @@ class Pinger {
         var time = event.summary!.time!.inMilliseconds;
         if(event.summary?.received != 0){
           if(globals.data['networkType'] == 'mobile'){
-            globals.host[2].update('name', (value) => carrierInfo.toString());
+            globals.host[2].update('name', (value) => carrierName.toString());
           }else{
             globals.host[2].update('name', (value) => hostName.toString());
           }
@@ -103,7 +102,7 @@ class Pinger {
           globals.host[2].update('time', (value) => time);
         }else if(event.summary?.received == 0){
           if(globals.data['networkType'] == 'mobile'){
-            globals.host[2].update('name', (value) => carrierInfo.toString());
+            globals.host[2].update('name', (value) => carrierName.toString());
           }else{
             globals.host[2].update('name', (value) => hostName.toString());
           }
@@ -119,7 +118,7 @@ class Pinger {
   Future<void> pingFourth() async {
     var hostName = await Network().getNetworkName();
     var hostInfo = globals.host[3];
-    String? carrierInfo = await CarrierInfo.carrierName;
+    var carrierName = await Network().getCarrierName();
     final ping = Ping(hostInfo['addr'].toString(), count: 5); // TODO cambiare il numero di ping
     ping.stream.listen((event) {
       if(event.summary != null){
@@ -129,7 +128,7 @@ class Pinger {
         var time = event.summary!.time!.inMilliseconds;
         if(event.summary?.received != 0){
           if(globals.data['networkType'] == 'mobile'){
-            globals.host[3].update('name', (value) => carrierInfo.toString());
+            globals.host[3].update('name', (value) => carrierName.toString());
           }else{
             globals.host[3].update('name', (value) => hostName.toString());
           }
@@ -139,7 +138,7 @@ class Pinger {
           globals.host[3].update('time', (value) => time);
         }else if(event.summary?.received == 0){
           if(globals.data['networkType'] == 'mobile'){
-            globals.host[3].update('name', (value) => carrierInfo.toString());
+            globals.host[3].update('name', (value) => carrierName.toString());
           }else{
             globals.host[3].update('name', (value) => hostName.toString());
           }
