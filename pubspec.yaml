@@ -102,6 +102,6 @@ flutter:
 flutter_icons:
   android: true
   ios: true
-  image_path: "assets/appLogov2nobg.png"
-  adaptive_icon_foreground: "assets/appLogov2nobg.png"
+  image_path: "assets/appLogonobg.png"
+  adaptive_icon_foreground: "assets/appLogonobg.png"
   adaptive_icon_background: "#ffff"
