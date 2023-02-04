@@ -1,4 +1,3 @@
-import 'package:carrier_info/carrier_info.dart';
 import 'package:check_internet/Classes/networkInfo.dart';
 import 'package:check_internet/Global/globals.dart' as globals;
 import 'package:dart_ping/dart_ping.dart';
@@ -17,22 +16,13 @@ class Pinger {
         var received = event.summary!.received.toString();
         var time = event.summary!.time!.inMilliseconds;
         if(event.summary?.received != 0){
-          if(globals.data['networkType'] == 'mobile'){
-            globals.host[0].update('name', (value) => 'Not Avaible');
-          }else{
-            globals.host[0].update('name', (value) => hostName.toString());
-          }
+          globals.host[0].update('name', (value) => hostName.toString());
           globals.host[0].update('addr', (value) => hostAddr.toString());
           globals.host[0].update('isAlive', (value) => true);
           globals.host[0].update('packageTransmitted', (value) => transmitted);
           globals.host[0].update('packageReceived', (value) => received);
           globals.host[0].update('time', (value) => time);
         }else if(event.summary?.received == 0){
-          if(globals.data['networkType'] == 'mobile'){
-            globals.host[0].update('name', (value) => carrierName.toString());
-          }else{
-            globals.host[0].update('name', (value) => hostName.toString());
-          }
           globals.host[0].update('isAlive', (value) => false);
           globals.host[0].update('packageTransmitted', (value) => transmitted);
           globals.host[0].update('packageReceived', (value) => received);
@@ -55,21 +45,12 @@ class Pinger {
         var received = event.summary!.received.toString();
         var time = event.summary!.time!.inMilliseconds;
         if(event.summary?.received != 0){
-          if(globals.data['networkType'] == 'mobile'){
-            globals.host[1].update('name', (value) => 'Not Avaible');
-          }else{
-            globals.host[1].update('name', (value) => hostName.toString());
-          }
+          globals.host[1].update('name', (value) => carrierName.toString());
           globals.host[1].update('isAlive', (value) => true);
           globals.host[1].update('packageTransmitted', (value) => transmitted);
           globals.host[1].update('packageReceived', (value) => received);
           globals.host[1].update('time', (value) => time);
         }else if(event.summary?.received == 0){
-          if(globals.data['networkType'] == 'mobile'){
-            globals.host[1].update('name', (value) => carrierName.toString());
-          }else{
-            globals.host[1].update('name', (value) => hostName.toString());
-          }
           globals.host[1].update('isAlive', (value) => false);
           globals.host[1].update('packageTransmitted', (value) => transmitted);
           globals.host[1].update('packageReceived', (value) => received);

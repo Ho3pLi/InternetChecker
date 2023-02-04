@@ -182,10 +182,13 @@ class MyHomeState extends State<Home> {
                       });
                       if(globals.data['networkType'] != 'mobile'){
                         Pinger().pingFirst();
-                        Pinger().pingSecond();
+                        Pinger().pingSecond(); 
+                      }else if (globals.data['networkType'] == 'mobile'){
+                        globals.host[0].update('name', (value) => 'Not Avaible');
+                        globals.host[1].update('name', (value) => 'Not Avaible');
+                        Pinger().pingThird();
+                        Pinger().pingFourth();
                       }
-                      Pinger().pingThird();
-                      Pinger().pingFourth();
                       Timer(const Duration(seconds: 10), () {
                         Timer(const Duration(seconds: 8), () {
                           setState(() {
