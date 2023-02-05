@@ -182,7 +182,9 @@ class MyHomeState extends State<Home> {
                       });
                       if(globals.data['networkType'] != 'mobile'){
                         Pinger().pingFirst();
-                        Pinger().pingSecond(); 
+                        Pinger().pingSecond();
+                        Pinger().pingThird();
+                        Pinger().pingFourth();
                       }else if (globals.data['networkType'] == 'mobile'){
                         globals.host[0].update('name', (value) => 'Not Avaible');
                         globals.host[1].update('name', (value) => 'Not Avaible');
@@ -195,7 +197,9 @@ class MyHomeState extends State<Home> {
                             visible = !visible;
                           });
                         });
-                        for (var i = 0; i < 2; i++) {
+                        var nSummeries = globals.summaries.length;  
+                        var data = globals.host;
+                        for (var i = 0; i < globals.summaries.length; i++) {
                           //log(globals.host[i].toString());
                           log(globals.summaries[i].toString());
                         }
