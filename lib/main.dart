@@ -23,13 +23,6 @@ void main() {
 class App extends StatelessWidget {
   const App({super.key});
 
-  Future<void> setUpPermissions() async {
-    await [
-      Permission.phone,
-      Permission.sms,
-    ].request();
-  }
-
   Future<void> setIsConnected() async {
     var isConnected = await Network().checkConnectivityState();
     globals.data.update('isConnected', (value) => isConnected);
@@ -38,7 +31,6 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     setIsConnected();
-    setUpPermissions();
     return MaterialApp(
       title: 'Internet Checker',
       initialRoute: '/',

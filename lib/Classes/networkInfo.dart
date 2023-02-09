@@ -1,4 +1,3 @@
-import 'package:carrier_info/carrier_info.dart';
 import 'package:network_info_plus/network_info_plus.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:check_internet/Global/globals.dart' as globals;
@@ -41,11 +40,5 @@ class Network {
     }
 
     return isConnected;
-  }
-
-  Future<String> getCarrierName() async {
-    AndroidCarrierData? carrierInfo = await CarrierInfo.getAndroidInfo();
-    String carrierName = carrierInfo!.telephonyInfo[0].carrierName;
-    return carrierName;
   }
 }

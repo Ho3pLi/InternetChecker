@@ -22,7 +22,7 @@ List<Map<String, Object>> host = [
     'rtt': 0
   },
   {
-    'name': 'xxxx',
+    'name': 'VPN',
     'addr': '8.8.8.8',
     'isAlive': false,
     'packageTransmitted': '',
@@ -32,7 +32,7 @@ List<Map<String, Object>> host = [
     'rtt': 0
   },
   {
-    'name': 'xxxx',
+    'name': 'INTERNET',
     'addr': '151.7.86.183',
     'isAlive': false,
     'packageTransmitted': '',
