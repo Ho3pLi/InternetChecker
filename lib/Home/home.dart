@@ -25,7 +25,7 @@ class MyHomeState extends State<Home> {
 
   final BannerAd downBanner = BannerAd(
   adUnitId: AdMobServices.BannerAdUnitId!,
-  size: AdSize.largeBanner,
+  size: AdSize.mediumRectangle,
   request: const AdRequest(),
   listener: AdMobServices.bannerListener,
   );
@@ -80,16 +80,16 @@ class MyHomeState extends State<Home> {
       ),
       body: Column(
         children: [
-          Container(
-            alignment: Alignment.center,
-            width: upBanner.size.width.toDouble(),
-            height: upBanner.size.height.toDouble(),
-            child: upAdWidget,
-          ),
+          // Container(
+          //   alignment: Alignment.center,
+          //   width: upBanner.size.width.toDouble(),
+          //   height: upBanner.size.height.toDouble(),
+          //   child: upAdWidget,
+          // ),
           Container(
             height: 300,
             width: 300,
-            margin: const EdgeInsets.only(top: 70, bottom: 10),
+            margin: const EdgeInsets.only(top: 0, bottom: 0),
             child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: GridView(gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisSpacing: 10, crossAxisSpacing: 10),children: [
@@ -261,7 +261,7 @@ class MyHomeState extends State<Home> {
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(top: 20),
+            margin: const EdgeInsets.only(top: 0),
             alignment: Alignment.center,
             width: downBanner.size.width.toDouble(),
             height: downBanner.size.height.toDouble(),
