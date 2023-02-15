@@ -203,6 +203,7 @@ class MyHomeState extends State<Home> {
                           //log(globals.host[i].toString());
                           log(globals.summaries[i].toString());
                         }
+                        globals.summaries = [];
                         Navigator.pushNamed(context, '/third');
                       });
                     } else {
