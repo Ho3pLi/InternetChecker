@@ -2,17 +2,20 @@ class StatsCalc{
 
   double calculateJitter(List singlePingTimeList){
     
-    double jitter = 0;
+    double jitter = 0;  //11,1,56,10
+    int diff = 0;
+    var i;
 
-    for(var i = 0; i < singlePingTimeList.length; i++){
+    for(i = 0; i < singlePingTimeList.length-1; i++){
       var k = i + 1;
-      var diff = singlePingTimeList[i] - singlePingTimeList[k];
+      diff = singlePingTimeList[i] - singlePingTimeList[k];
       if(diff < 0){
-        diff = diff + (diff*2);
+        diff = diff.abs();
       }
       jitter = jitter + diff;
-      jitter = jitter / singlePingTimeList.length-1;
     }
+    
+    jitter = jitter / i;
 
     return jitter;
 
