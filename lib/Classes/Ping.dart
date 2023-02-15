@@ -18,7 +18,7 @@ class Pinger {
     ping.stream.listen((event) {
       var timeResponse = event.response?.time?.inMicroseconds;
       if(timeResponse != null){
-        double microsecondsTime = (timeResponse! / 1000);
+        double microsecondsTime = (timeResponse / 1000);
         timeList.add(microsecondsTime);
       }
       if(event.summary != null){
@@ -55,7 +55,7 @@ class Pinger {
     ping.stream.listen((event) {
       var timeResponse = event.response?.time?.inMicroseconds;
       if(timeResponse != null){
-        double microsecondsTime = (timeResponse! / 1000);
+        double microsecondsTime = (timeResponse / 1000);
         timeList.add(microsecondsTime);
       }
       var y = globals.summaries;
@@ -92,7 +92,7 @@ class Pinger {
     ping.stream.listen((event) {
       var timeResponse = event.response?.time?.inMicroseconds;
       if(timeResponse != null){
-        double microsecondsTime = (timeResponse! / 1000);
+        double microsecondsTime = (timeResponse / 1000);
         timeList.add(microsecondsTime);
       }
       if(event.summary != null){
@@ -132,7 +132,7 @@ class Pinger {
     ping.stream.listen((event) {
       var timeResponse = event.response?.time?.inMicroseconds;
       if(timeResponse != null){
-        double microsecondsTime = (timeResponse! / 1000);
+        double microsecondsTime = (timeResponse / 1000);
         timeList.add(microsecondsTime);
       }
       if(event.summary != null){

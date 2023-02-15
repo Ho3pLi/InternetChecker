@@ -2,7 +2,7 @@ class StatsCalc{
 
   double calculateJitter(List singlePingTimeList){
     
-    double jitter = 0;  //11,1,56,10
+    double jitter = 0;
     double diff = 0;
     var i;
 
