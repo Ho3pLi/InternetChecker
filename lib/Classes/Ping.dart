@@ -1,10 +1,7 @@
-import 'dart:developer';
-
 import 'package:check_internet/Classes/networkInfo.dart';
 import 'package:check_internet/Classes/statsCalc.dart';
 import 'package:check_internet/Global/globals.dart' as globals;
 import 'package:dart_ping/dart_ping.dart';
-import 'package:flutter/services.dart';
 
 class Pinger {
 
@@ -26,7 +23,7 @@ class Pinger {
         var transmitted = event.summary!.transmitted.toString();
         var received = event.summary!.received.toString();
         var time = event.summary!.time!.inMilliseconds;
-        var jitter = StatsCalc().calculateJitter(timeList).toStringAsFixed(3);
+        var jitter = StatsCalc().calculateJitter(timeList).toStringAsFixed(0);
         if(event.summary?.received != 0){
           globals.host[0].update('name', (value) => hostName.toString());
           globals.host[0].update('addr', (value) => hostAddr.toString());
@@ -64,7 +61,7 @@ class Pinger {
         var transmitted = event.summary!.transmitted.toString();
         var received = event.summary!.received.toString();
         var time = event.summary!.time!.inMilliseconds;
-        var jitter = StatsCalc().calculateJitter(timeList).toStringAsFixed(3);
+        var jitter = StatsCalc().calculateJitter(timeList).toStringAsFixed(0);
         if(event.summary?.received != 0){
           globals.host[1].update('name', (value) => hostName.toString());
           globals.host[1].update('isAlive', (value) => true);
@@ -100,7 +97,7 @@ class Pinger {
         var transmitted = event.summary!.transmitted.toString();
         var received = event.summary!.received.toString();
         var time = event.summary!.time!.inMilliseconds;
-        var jitter = StatsCalc().calculateJitter(timeList).toStringAsFixed(3); 
+        var jitter = StatsCalc().calculateJitter(timeList).toStringAsFixed(0); 
         if(event.summary?.received != 0){
           if(globals.data['networkType'] != 'mobile'){
             globals.host[2].update('name', (value) => hostName.toString());
@@ -140,7 +137,7 @@ class Pinger {
         var transmitted = event.summary!.transmitted.toString();
         var received = event.summary!.received.toString();
         var time = event.summary!.time!.inMilliseconds;
-        var jitter = StatsCalc().calculateJitter(timeList).toStringAsFixed(3);
+        var jitter = StatsCalc().calculateJitter(timeList).toStringAsFixed(0);
         if(event.summary?.received != 0){
           if(globals.data['networkType'] != 'mobile'){
             globals.host[3].update('name', (value) => hostName.toString());

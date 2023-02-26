@@ -192,7 +192,7 @@ class MyResultsState extends State<dfgwResults> {
                 child: ListTile(
                   tileColor: const Color(0x00ffffff),
                   title: const Text(
-                    "Jitter",
+                    "Jitter (ms)",
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
