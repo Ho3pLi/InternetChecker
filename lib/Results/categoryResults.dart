@@ -69,6 +69,14 @@ class MyResultsState extends State<categoryResults> {
             color: Color(0xffffffff),
           ),
         ),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.info_outline),
+            onPressed: () {
+              Navigator.pushNamed(context, '/eighth');
+            },
+          ),
+        ],
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           color:  Colors.white,
