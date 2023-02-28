@@ -6,7 +6,7 @@ class GetStarted extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: Colors.grey.shade900,
       body: Padding(
         padding: const EdgeInsets.fromLTRB(30, 100, 30, 30),
         child: SingleChildScrollView(

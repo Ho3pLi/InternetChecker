@@ -6,12 +6,12 @@ class Settings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffffffff),
+      backgroundColor: Colors.grey.shade900,
       appBar: AppBar(
         elevation: 4,
         centerTitle: true,
         automaticallyImplyLeading: false,
-        backgroundColor: const Color(0xff3a57e8),
+        backgroundColor: Colors.grey.shade900,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.zero,
         ),
@@ -25,7 +25,7 @@ class Settings extends StatelessWidget {
           ),
         ),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black, size: 24),
+          icon: const Icon(Icons.arrow_back, color: Colors.white, size: 24),
           onPressed: () {
             Navigator.pushNamed(context, '/second');
           },
@@ -67,7 +67,7 @@ class Settings extends StatelessWidget {
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
                       fontSize: 16,
-                      color: Color(0xff000000),
+                      color: Colors.white,
                     ),
                     textAlign: TextAlign.left,
                   ),
@@ -79,7 +79,7 @@ class Settings extends StatelessWidget {
                     borderRadius: BorderRadius.zero,
                   ),
                   leading:
-                      Icon(Icons.router, color: Color(0xff3a57e8), size: 24),
+                      Icon(Icons.router, color: Colors.white, size: 24),
                   trailing: Icon(Icons.arrow_forward_ios,
                       color: Color(0xff808080), size: 18),
                 ),
@@ -94,7 +94,7 @@ class Settings extends StatelessWidget {
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
                       fontSize: 16,
-                      color: Color(0xff000000),
+                      color: Colors.white,
                     ),
                     textAlign: TextAlign.left,
                   ),
@@ -106,7 +106,7 @@ class Settings extends StatelessWidget {
                     borderRadius: BorderRadius.zero,
                   ),
                   leading:
-                      Icon(Icons.route_rounded, color: Color(0xff3a57e8), size: 24),
+                      Icon(Icons.route_rounded, color: Colors.white, size: 24),
                   trailing: Icon(Icons.arrow_forward_ios,
                       color: Color(0xff808080), size: 18),
                 ),
@@ -121,7 +121,7 @@ class Settings extends StatelessWidget {
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
                       fontSize: 16,
-                      color: Color(0xff000000),
+                      color: Colors.white,
                     ),
                     textAlign: TextAlign.left,
                   ),
@@ -133,7 +133,7 @@ class Settings extends StatelessWidget {
                     borderRadius: BorderRadius.zero,
                   ),
                   leading:
-                      Icon(Icons.vpn_lock, color: Color(0xff3a57e8), size: 24),
+                      Icon(Icons.vpn_lock, color: Colors.white, size: 24),
                   trailing: Icon(Icons.arrow_forward_ios,
                       color: Color(0xff808080), size: 18),
                 ),
@@ -148,7 +148,7 @@ class Settings extends StatelessWidget {
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
                       fontSize: 16,
-                      color: Color(0xff000000),
+                      color: Colors.white,
                     ),
                     textAlign: TextAlign.left,
                   ),
@@ -160,7 +160,7 @@ class Settings extends StatelessWidget {
                     borderRadius: BorderRadius.zero,
                   ),
                   leading:
-                      Icon(Icons.language, color: Color(0xff3a57e8), size: 24),
+                      Icon(Icons.language, color: Colors.white, size: 24),
                   trailing: Icon(Icons.arrow_forward_ios,
                       color: Color(0xff808080), size: 18),
                 ),

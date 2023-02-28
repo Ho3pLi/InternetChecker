@@ -30,10 +30,10 @@ class MyHomeState extends State<Home> {
   listener: AdMobServices.bannerListener,
   );
 
-  Icon dfgwIcon = const Icon(Icons.router, size: 40, color: Colors.white);
-  Text dfgwText = const Text("DFGW", style: TextStyle(color: Colors.white, fontSize: 20));
-  Icon wanIcon = const Icon(Icons.route_rounded, size: 40, color: Colors.white);
-  Text wanText = const Text("WAN", style: TextStyle(color: Colors.white, fontSize: 20));
+  Icon dfgwIcon = Icon(Icons.router, size: 40, color: Colors.grey.shade900);
+  Text dfgwText = Text("DFGW", style: TextStyle(color: Colors.grey.shade900, fontSize: 20));
+  Icon wanIcon = Icon(Icons.route_rounded, size: 40, color: Colors.grey.shade900);
+  Text wanText = Text("WAN", style: TextStyle(color: Colors.grey.shade900, fontSize: 20));
   bool visible = false;
   bool serviceEnabled = false;
   late LocationPermission gpsPermission;
@@ -56,12 +56,12 @@ class MyHomeState extends State<Home> {
     final AdWidget upAdWidget = AdWidget(ad: upBanner);
     final AdWidget downAdWidget = AdWidget(ad: downBanner);
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: Colors.grey.shade900,
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Colors.grey.shade900,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.zero,
         ),
@@ -98,43 +98,44 @@ class MyHomeState extends State<Home> {
             child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: GridView(gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisSpacing: 10, crossAxisSpacing: 10),children: [
-              Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.blue),
+              Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.white),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                 dfgwIcon,
                 dfgwText
               ],),),
-              Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.blue),
+              Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.white),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                 wanIcon,
                 wanText
               ],),),
-              Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.blue),
+              Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.white),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                Icon(Icons.vpn_lock, size: 40, color: Colors.white),
-                Text("VPN", style: TextStyle(color: Colors.white, fontSize: 20))
+                children: [
+                Icon(Icons.vpn_lock, size: 40, color: Colors.grey.shade900),
+                Text("VPN", style: TextStyle(color: Colors.grey.shade900, fontSize: 20))
               ],),),
-              Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.blue),
+              Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.white),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                Icon(Icons.language, size: 40, color: Colors.white),
-                Text("INTERNET", style: TextStyle(color: Colors.white, fontSize: 20))
+                children: [
+                Icon(Icons.language, size: 40, color: Colors.grey.shade900),
+                Text("INTERNET", style: TextStyle(color: Colors.grey.shade900, fontSize: 20))
               ],),),
             ],),
           )),
           Container(
-            margin: const EdgeInsets.only(bottom: 15),
+            margin: const EdgeInsets.only(bottom: 15, top: 20),
             child: AnimatedOpacity(
               opacity: visible ? 1.0 : 0.0,
               duration: const Duration(milliseconds: 500),
-              child: const CircularProgressIndicator(
-                backgroundColor: Colors.white,
+              child: CircularProgressIndicator(
+                backgroundColor: Colors.grey.shade900,
+                color: Colors.white,
                 strokeWidth: 6,
               ),
             ),
@@ -266,7 +267,7 @@ class MyHomeState extends State<Home> {
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(top: 0),
+            margin: const EdgeInsets.only(top: 40),
             alignment: Alignment.center,
             width: downBanner.size.width.toDouble(),
             height: downBanner.size.height.toDouble(),

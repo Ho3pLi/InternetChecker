@@ -51,12 +51,12 @@ class MyResultsState extends State<categoryResults> {
   Widget build(BuildContext context) {
     final AdWidget downAdWidget = AdWidget(ad: downBanner);
     return Scaffold(
-      backgroundColor: const Color(0xffffffff),
+      backgroundColor: Colors.grey.shade900,
       appBar: AppBar(
         elevation: 4,
         centerTitle: true,
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Colors.grey.shade900,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.zero,
         ),
@@ -70,8 +70,8 @@ class MyResultsState extends State<categoryResults> {
           ),
         ),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
-          color: const Color(0xffffffff),
+          icon: const Icon(Icons.arrow_back),
+          color:  Colors.white,
           onPressed:() {
             Navigator.pushNamed(context, '/second');
           },
@@ -110,7 +110,7 @@ class MyResultsState extends State<categoryResults> {
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
                       fontSize: 16,
-                      color: Color(0xff000000),
+                      color: Colors.white,
                     ),
                     textAlign: TextAlign.left,
                   ),
@@ -141,7 +141,7 @@ class MyResultsState extends State<categoryResults> {
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
                       fontSize: 16,
-                      color: Color(0xff000000),
+                      color: Colors.white,
                     ),
                     textAlign: TextAlign.left,
                   ),
@@ -172,7 +172,7 @@ class MyResultsState extends State<categoryResults> {
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
                       fontSize: 16,
-                      color: Color(0xff000000),
+                      color: Colors.white,
                     ),
                     textAlign: TextAlign.left,
                   ),
@@ -203,7 +203,7 @@ class MyResultsState extends State<categoryResults> {
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
                       fontSize: 16,
-                      color: Color(0xff000000),
+                      color: Colors.white,
                     ),
                     textAlign: TextAlign.left,
                   ),

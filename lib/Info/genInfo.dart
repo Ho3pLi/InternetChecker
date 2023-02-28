@@ -6,12 +6,12 @@ class Info extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffffffff),
+      backgroundColor: Colors.grey.shade900,
       appBar: AppBar(
         elevation: 0,
         centerTitle: false,
         automaticallyImplyLeading: false,
-        backgroundColor: const Color(0xffffffff),
+        backgroundColor: Colors.grey.shade900,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.zero,
         ),
