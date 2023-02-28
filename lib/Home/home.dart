@@ -30,10 +30,10 @@ class MyHomeState extends State<Home> {
   listener: AdMobServices.bannerListener,
   );
 
-  Icon dfgwIcon = Icon(Icons.router, size: 40, color: Colors.white);
-  Text dfgwText = Text("DFGW", style: TextStyle(color: Colors.white, fontSize: 20));
-  Icon wanIcon = Icon(Icons.route_rounded, size: 40, color: Colors.white);
-  Text wanText = Text("WAN", style: TextStyle(color: Colors.white, fontSize: 20));
+  Icon dfgwIcon = const Icon(Icons.router, size: 40, color: Colors.white);
+  Text dfgwText = const Text("DFGW", style: TextStyle(color: Colors.white, fontSize: 20));
+  Icon wanIcon = const Icon(Icons.route_rounded, size: 40, color: Colors.white);
+  Text wanText = const Text("WAN", style: TextStyle(color: Colors.white, fontSize: 20));
   bool visible = false;
   bool serviceEnabled = false;
   late LocationPermission gpsPermission;
@@ -44,10 +44,10 @@ class MyHomeState extends State<Home> {
     upBanner.load();
     downBanner.load();
     if(globals.data['networkType'] == 'mobile'){
-      dfgwIcon = Icon(Icons.router, size: 40, color: Colors.grey);
-      dfgwText = Text("DFGW", style: TextStyle(color: Colors.grey, fontSize: 20));
-      wanIcon = Icon(Icons.route_rounded, size: 40, color: Colors.grey);
-      wanText = Text("WAN", style: TextStyle(color: Colors.grey, fontSize: 20));
+      dfgwIcon = const Icon(Icons.router, size: 40, color: Colors.grey);
+      dfgwText = const Text("DFGW", style: TextStyle(color: Colors.grey, fontSize: 20));
+      wanIcon = const Icon(Icons.route_rounded, size: 40, color: Colors.grey);
+      wanText = const Text("WAN", style: TextStyle(color: Colors.grey, fontSize: 20));
     }
   }
 
@@ -74,8 +74,13 @@ class MyHomeState extends State<Home> {
             color: Colors.white,
           ),
         ),
-        actions: const [
-          Icon(Icons.notifications, color: Colors.white, size: 24),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.info_outline),
+            onPressed: () {
+              Navigator.pushNamed(context, '/eighth');
+            },
+          ),
         ],
       ),
       body: Column(
@@ -153,20 +158,20 @@ class MyHomeState extends State<Home> {
                     showDialog(
                     context: context,
                     builder: ((context) => AlertDialog(
-                      title: Text('GPS ERROR'),
-                      content: Text('This app needs location access to work!\nActivate it from the settings.'),
+                      title: const Text('GPS ERROR'),
+                      content: const Text('This app needs location access to work!\nActivate it from the settings.'),
                       actions: [
                         TextButton(
                           onPressed: (() {
                             Navigator.pop(context);
                           }),
-                          child: Text('CANCEL')
+                          child: const Text('CANCEL')
                         ),
                         TextButton(
                           onPressed: (() {
                             AppSettings.openLocationSettings();
                           }),
-                          child: Text('SETTINGS')
+                          child: const Text('SETTINGS')
                         )
                       ],
                     ))
@@ -210,20 +215,20 @@ class MyHomeState extends State<Home> {
                       showDialog(
                         context: context,
                         builder: ((context) => AlertDialog(
-                          title: Text('NETWORK ERROR'),
-                          content: Text('This app needs internet access to work!\nActivate it from the settings.'),
+                          title: const Text('NETWORK ERROR'),
+                          content: const Text('This app needs internet access to work!\nActivate it from the settings.'),
                           actions: [
                             TextButton(
                               onPressed: (() {
                                 Navigator.pop(context);
                               }),
-                              child: Text('CANCEL')
+                              child: const Text('CANCEL')
                             ),
                             TextButton(
                               onPressed: (() {
                                 AppSettings.openWirelessSettings();
                               }),
-                              child: Text('SETTINGS')
+                              child: const Text('SETTINGS')
                             )
                           ],
                         ))
@@ -234,20 +239,20 @@ class MyHomeState extends State<Home> {
                   showDialog(
                     context: context,
                     builder: ((context) => AlertDialog(
-                      title: Text('GPS ERROR'),
-                      content: Text('This app needs location access to work!\nActivate it from the settings.'),
+                      title: const Text('GPS ERROR'),
+                      content: const Text('This app needs location access to work!\nActivate it from the settings.'),
                       actions: [
                         TextButton(
                           onPressed: (() {
                             Navigator.pop(context);
                           }),
-                          child: Text('CANCEL')
+                          child: const Text('CANCEL')
                         ),
                         TextButton(
                           onPressed: (() {
                             AppSettings.openLocationSettings();
                           }),
-                          child: Text('SETTINGS')
+                          child: const Text('SETTINGS')
                         )
                       ],
                     ))

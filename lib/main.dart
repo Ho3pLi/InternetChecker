@@ -7,6 +7,7 @@ import 'package:check_internet/Results/categoryResults.dart';
 import 'package:check_internet/Results/dfgwResults.dart';
 import 'package:check_internet/Results/internetResults.dart';
 import 'package:check_internet/Results/wanResults.dart';
+import 'package:check_internet/Info/genInfo.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'Classes/networkInfo.dart';
@@ -41,7 +42,8 @@ class App extends StatelessWidget {
       '/fourth':(context) => const dfgwResults(),
       '/fifth':(context) => const wanResults(),
       '/sixth':(context) => const cResults(),
-      '/seventh':(context) => const internetResults()
+      '/seventh':(context) => const internetResults(),
+      '/eighth':(context) => const Info(),
       },
     );
   }
