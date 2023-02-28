@@ -76,9 +76,9 @@ class MyHomeState extends State<Home> {
         ),
         actions: <Widget>[
           IconButton(
-            icon: const Icon(Icons.info_outline),
+            icon: const Icon(Icons.settings),
             onPressed: () {
-              Navigator.pushNamed(context, '/eighth');
+              Navigator.pushNamed(context, '/nineth');
             },
           ),
         ],
