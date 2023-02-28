@@ -1,10 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import '../Services/AdMobServices.dart';
 
-class Settings extends StatelessWidget {
+class Settings extends StatefulWidget {
   const Settings({super.key});
 
   @override
+  MySettingsState createState() => MySettingsState();
+}
+
+class MySettingsState extends State<Settings>{
+  final BannerAd downBanner = BannerAd(
+  adUnitId: AdMobServices.BannerAdUnitId!,
+  size: AdSize.mediumRectangle,
+  request: const AdRequest(),
+  listener: AdMobServices.bannerListener,
+  );
+
+  @override
+  void initState() {
+    super.initState();
+    downBanner.load();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final AdWidget downAdWidget = AdWidget(ad: downBanner);
     return Scaffold(
       backgroundColor: Colors.grey.shade900,
       appBar: AppBar(
@@ -31,143 +52,154 @@ class Settings extends StatelessWidget {
           },
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 16),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.max,
-            children: const [
-              SizedBox(
-                height: 16,
-                width: 16,
-              ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(0, 30, 0, 0),
-                child: Text(
-                  "Network",
-                  textAlign: TextAlign.start,
-                  overflow: TextOverflow.clip,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontStyle: FontStyle.normal,
-                    fontSize: 14,
-                    color: Color(0xff848588),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 16),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.max,
+                children: const [
+                  SizedBox(
+                    height: 16,
+                    width: 16,
                   ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
-                child: ListTile(
-                  tileColor: Color(0x00ffffff),
-                  title: Text(
-                    "Default Gateway (DFGW)",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontStyle: FontStyle.normal,
-                      fontSize: 16,
-                      color: Colors.white,
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0, 30, 0, 0),
+                    child: Text(
+                      "Network",
+                      textAlign: TextAlign.start,
+                      overflow: TextOverflow.clip,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontStyle: FontStyle.normal,
+                        fontSize: 14,
+                        color: Color(0xff848588),
+                      ),
                     ),
-                    textAlign: TextAlign.left,
                   ),
-                  dense: true,
-                  contentPadding: EdgeInsets.all(0),
-                  selected: false,
-                  selectedTileColor: Color(0x42000000),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.zero,
-                  ),
-                  leading:
-                      Icon(Icons.router, color: Colors.white, size: 24),
-                  trailing: Icon(Icons.arrow_forward_ios,
-                      color: Color(0xff808080), size: 18),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
-                child: ListTile(
-                  tileColor: Color(0x00ffffff),
-                  title: Text(
-                    "Wide Area Network (WAN)",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontStyle: FontStyle.normal,
-                      fontSize: 16,
-                      color: Colors.white,
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
+                    child: ListTile(
+                      tileColor: Color(0x00ffffff),
+                      title: Text(
+                        "Default Gateway (DFGW)",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontStyle: FontStyle.normal,
+                          fontSize: 16,
+                          color: Colors.white,
+                        ),
+                        textAlign: TextAlign.left,
+                      ),
+                      dense: true,
+                      contentPadding: EdgeInsets.all(0),
+                      selected: false,
+                      selectedTileColor: Color(0x42000000),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.zero,
+                      ),
+                      leading:
+                          Icon(Icons.router, color: Colors.white, size: 24),
+                      trailing: Icon(Icons.arrow_forward_ios,
+                          color: Color(0xff808080), size: 18),
                     ),
-                    textAlign: TextAlign.left,
                   ),
-                  dense: true,
-                  contentPadding: EdgeInsets.all(0),
-                  selected: false,
-                  selectedTileColor: Color(0x42000000),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.zero,
-                  ),
-                  leading:
-                      Icon(Icons.route_rounded, color: Colors.white, size: 24),
-                  trailing: Icon(Icons.arrow_forward_ios,
-                      color: Color(0xff808080), size: 18),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
-                child: ListTile(
-                  tileColor: Color(0x00ffffff),
-                  title: Text(
-                    "Virtual Private Network (VPN)",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontStyle: FontStyle.normal,
-                      fontSize: 16,
-                      color: Colors.white,
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
+                    child: ListTile(
+                      tileColor: Color(0x00ffffff),
+                      title: Text(
+                        "Wide Area Network (WAN)",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontStyle: FontStyle.normal,
+                          fontSize: 16,
+                          color: Colors.white,
+                        ),
+                        textAlign: TextAlign.left,
+                      ),
+                      dense: true,
+                      contentPadding: EdgeInsets.all(0),
+                      selected: false,
+                      selectedTileColor: Color(0x42000000),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.zero,
+                      ),
+                      leading:
+                          Icon(Icons.route_rounded, color: Colors.white, size: 24),
+                      trailing: Icon(Icons.arrow_forward_ios,
+                          color: Color(0xff808080), size: 18),
                     ),
-                    textAlign: TextAlign.left,
                   ),
-                  dense: true,
-                  contentPadding: EdgeInsets.all(0),
-                  selected: false,
-                  selectedTileColor: Color(0x42000000),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.zero,
-                  ),
-                  leading:
-                      Icon(Icons.vpn_lock, color: Colors.white, size: 24),
-                  trailing: Icon(Icons.arrow_forward_ios,
-                      color: Color(0xff808080), size: 18),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
-                child: ListTile(
-                  tileColor: Color(0x00ffffff),
-                  title: Text(
-                    "Internet",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontStyle: FontStyle.normal,
-                      fontSize: 16,
-                      color: Colors.white,
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
+                    child: ListTile(
+                      tileColor: Color(0x00ffffff),
+                      title: Text(
+                        "Virtual Private Network (VPN)",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontStyle: FontStyle.normal,
+                          fontSize: 16,
+                          color: Colors.white,
+                        ),
+                        textAlign: TextAlign.left,
+                      ),
+                      dense: true,
+                      contentPadding: EdgeInsets.all(0),
+                      selected: false,
+                      selectedTileColor: Color(0x42000000),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.zero,
+                      ),
+                      leading:
+                          Icon(Icons.vpn_lock, color: Colors.white, size: 24),
+                      trailing: Icon(Icons.arrow_forward_ios,
+                          color: Color(0xff808080), size: 18),
                     ),
-                    textAlign: TextAlign.left,
                   ),
-                  dense: true,
-                  contentPadding: EdgeInsets.all(0),
-                  selected: false,
-                  selectedTileColor: Color(0x42000000),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.zero,
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
+                    child: ListTile(
+                      tileColor: Color(0x00ffffff),
+                      title: Text(
+                        "Internet",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontStyle: FontStyle.normal,
+                          fontSize: 16,
+                          color: Colors.white,
+                        ),
+                        textAlign: TextAlign.left,
+                      ),
+                      dense: true,
+                      contentPadding: EdgeInsets.all(0),
+                      selected: false,
+                      selectedTileColor: Color(0x42000000),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.zero,
+                      ),
+                      leading:
+                          Icon(Icons.language, color: Colors.white, size: 24),
+                      trailing: Icon(Icons.arrow_forward_ios,
+                          color: Color(0xff808080), size: 18),
+                    ),
                   ),
-                  leading:
-                      Icon(Icons.language, color: Colors.white, size: 24),
-                  trailing: Icon(Icons.arrow_forward_ios,
-                      color: Color(0xff808080), size: 18),
-                ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
+          Container(
+            margin: const EdgeInsets.only(top: 40),
+            alignment: Alignment.center,
+            width: downBanner.size.width.toDouble(),
+            height: downBanner.size.height.toDouble(),
+            child: downAdWidget,
+          ),
+        ],
       ),
     );
   }
