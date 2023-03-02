@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:check_internet/Classes/networkInfo.dart';
 import 'package:check_internet/Classes/statsCalc.dart';
 import 'package:check_internet/Global/globals.dart' as globals;
@@ -13,6 +14,7 @@ class Pinger {
     List timeList = [];
     final ping = Ping(hostAddr!, count: pingCounter); // TODO cambiare il numero di ping
     ping.stream.listen((event) {
+      // log(event.response!.time!.toString());
       var timeResponse = event.response?.time?.inMicroseconds;
       if(timeResponse != null){
         double microsecondsTime = (timeResponse / 1000);
@@ -62,6 +64,7 @@ class Pinger {
         var received = event.summary!.received.toString();
         var time = event.summary!.time!.inMilliseconds;
         var jitter = StatsCalc().calculateJitter(timeList).toStringAsFixed(0);
+        var RTT = StatsCalc().calculateRTT(timeList).toStringAsFixed(0);
         if(event.summary?.received != 0){
           globals.host[1].update('name', (value) => hostName.toString());
           globals.host[1].update('isAlive', (value) => true);

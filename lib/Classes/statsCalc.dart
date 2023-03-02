@@ -21,4 +21,18 @@ class StatsCalc{
     return jitter;
 
   }
+
+  double calculateRTT(List singlePingTimeList){
+
+    double RTT = 0;
+
+    if(singlePingTimeList.isNotEmpty){
+      for(var i = 0; i < singlePingTimeList.length; i++){
+        RTT = RTT + singlePingTimeList[i];
+      }
+      RTT = RTT / singlePingTimeList.length;
+    }
+
+    return RTT;
+  }
 }
