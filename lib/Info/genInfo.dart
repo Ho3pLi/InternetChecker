@@ -150,60 +150,65 @@ class MyInfoState extends State<Info>{
                         ),
                       ),
                     ),
-                    Card(
-                      margin: const EdgeInsets.all(0),
-                      color: const Color(0xffffffff),
-                      shadowColor: const Color(0xff000000),
-                      elevation: 4,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Container(
-                            alignment: Alignment.center,
-                            margin: const EdgeInsets.all(0),
-                            padding: const EdgeInsets.all(12),
-                            decoration: const BoxDecoration(
-                              color: Color(0x2d3a57e8),
-                              shape: BoxShape.circle,
-                            ),
-                            child: Icon(
-                              Icons.route_rounded,
-                              color: Colors.grey.shade900,
-                              size: 24,
-                            ),
-                          ),
-                          const Padding(
-                            padding: EdgeInsets.fromLTRB(0, 12, 0, 8),
-                            child: Text(
-                              "Wide Area Network",
-                              textAlign: TextAlign.center,
-                              maxLines: 1,
-                              overflow: TextOverflow.clip,
-                              style: TextStyle(
-                                fontWeight: FontWeight.w700,
-                                fontStyle: FontStyle.normal,
-                                fontSize: 16,
-                                color: Color(0xff000000),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/eleventh');
+                      },
+                      child: Card(
+                        margin: const EdgeInsets.all(0),
+                        color: const Color(0xffffffff),
+                        shadowColor: const Color(0xff000000),
+                        elevation: 4,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Container(
+                              alignment: Alignment.center,
+                              margin: const EdgeInsets.all(0),
+                              padding: const EdgeInsets.all(12),
+                              decoration: const BoxDecoration(
+                                color: Color(0x2d3a57e8),
+                                shape: BoxShape.circle,
+                              ),
+                              child: Icon(
+                                Icons.route_rounded,
+                                color: Colors.grey.shade900,
+                                size: 24,
                               ),
                             ),
-                          ),
-                          const Text(
-                            "WAN",
-                            textAlign: TextAlign.start,
-                            overflow: TextOverflow.clip,
-                            style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontStyle: FontStyle.normal,
-                              fontSize: 14,
-                              color: Color(0xff363636),
+                            const Padding(
+                              padding: EdgeInsets.fromLTRB(0, 12, 0, 8),
+                              child: Text(
+                                "Wide Area Network",
+                                textAlign: TextAlign.center,
+                                maxLines: 1,
+                                overflow: TextOverflow.clip,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  fontStyle: FontStyle.normal,
+                                  fontSize: 16,
+                                  color: Color(0xff000000),
+                                ),
+                              ),
                             ),
-                          ),
-                        ],
+                            const Text(
+                              "WAN",
+                              textAlign: TextAlign.start,
+                              overflow: TextOverflow.clip,
+                              style: TextStyle(
+                                fontWeight: FontWeight.w400,
+                                fontStyle: FontStyle.normal,
+                                fontSize: 14,
+                                color: Color(0xff363636),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     Card(

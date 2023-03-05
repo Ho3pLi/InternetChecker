@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'package:check_internet/Info/dfgwInfo.dart';
+import 'package:check_internet/Info/wanInfo.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:check_internet/GetStarted/getStarted.dart';
 import 'package:check_internet/Home/home.dart';
@@ -48,6 +49,7 @@ class App extends StatelessWidget {
       '/eighth':(context) => const Info(),
       '/nineth':(context) => const Settings(),
       '/tenth':(context) => const dfgwInfo(),
+      '/eleventh':(context) => const wanInfo(),
       },
     );
   }
