@@ -13,7 +13,7 @@ List<Map<String, Object>> host = [
   },
   {
     'name': 'xxxx',
-    'addr': '8.8.8.8',
+    'addr': '127.0.0.1',
     'isAlive': false,
     'packageTransmitted': '',
     'packageReceived': '',

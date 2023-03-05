@@ -220,12 +220,12 @@ class MyResultsState extends State<wanResults> {
                   ),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 16, 0, 0),
                 child: ListTile(
-                  tileColor: Color(0x00ffffff),
-                  title: Text(
-                    "RTT",
+                  tileColor: const Color(0x00ffffff),
+                  title: const Text(
+                    "RTT (ms)",
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
@@ -235,13 +235,23 @@ class MyResultsState extends State<wanResults> {
                     textAlign: TextAlign.left,
                   ),
                   dense: true,
-                  contentPadding: EdgeInsets.all(0),
+                  contentPadding: const EdgeInsets.all(0),
                   selected: false,
-                  selectedTileColor: Color(0x42000000),
-                  shape: RoundedRectangleBorder(
+                  selectedTileColor: const Color(0x42000000),
+                  shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.zero,
                   ),
                   // leading: Icon(Icons.language, color: Colors.blueGrey, size: 24),
+                  trailing: Text(
+                    info['rtt'].toString(),
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontStyle: FontStyle.normal,
+                      fontSize: 15,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.right,
+                  ),
                 ),
               ),
               Container(

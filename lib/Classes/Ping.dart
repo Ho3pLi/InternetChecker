@@ -26,6 +26,7 @@ class Pinger {
         var received = event.summary!.received.toString();
         var time = event.summary!.time!.inMilliseconds;
         var jitter = StatsCalc().calculateJitter(timeList).toStringAsFixed(0);
+        var RTT = StatsCalc().calculateRTT(timeList).toStringAsFixed(0);
         if(event.summary?.received != 0){
           globals.host[0].update('name', (value) => hostName.toString());
           globals.host[0].update('addr', (value) => hostAddr.toString());
@@ -34,6 +35,7 @@ class Pinger {
           globals.host[0].update('packageReceived', (value) => received);
           globals.host[0].update('time', (value) => time);
           globals.host[0].update('jitter', (value) => jitter);
+          globals.host[0].update('rtt', (value) => RTT);
         }else if(event.summary?.received == 0){
           globals.host[0].update('name', (value) => hostName.toString());
           globals.host[0].update('isAlive', (value) => false);
@@ -41,6 +43,7 @@ class Pinger {
           globals.host[0].update('packageReceived', (value) => received);
           globals.host[0].update('time', (value) => time);
           globals.host[0].update('jitter', (value) => jitter);
+          globals.host[0].update('rtt', (value) => RTT);
         }
       }
     });
@@ -72,6 +75,7 @@ class Pinger {
           globals.host[1].update('packageReceived', (value) => received);
           globals.host[1].update('time', (value) => time);
           globals.host[1].update('jitter', (value) => jitter);
+          globals.host[1].update('rtt', (value) => RTT);
         }else if(event.summary?.received == 0){
           globals.host[1].update('name', (value) => hostName.toString());
           globals.host[1].update('isAlive', (value) => false);
@@ -79,6 +83,7 @@ class Pinger {
           globals.host[1].update('packageReceived', (value) => received);
           globals.host[1].update('time', (value) => time);
           globals.host[1].update('jitter', (value) => jitter);
+          globals.host[1].update('rtt', (value) => RTT);
         }
       }
     });
@@ -100,7 +105,8 @@ class Pinger {
         var transmitted = event.summary!.transmitted.toString();
         var received = event.summary!.received.toString();
         var time = event.summary!.time!.inMilliseconds;
-        var jitter = StatsCalc().calculateJitter(timeList).toStringAsFixed(0); 
+        var jitter = StatsCalc().calculateJitter(timeList).toStringAsFixed(0);
+        var RTT = StatsCalc().calculateRTT(timeList).toStringAsFixed(0); 
         if(event.summary?.received != 0){
           if(globals.data['networkType'] != 'mobile'){
             globals.host[2].update('name', (value) => hostName.toString());
@@ -110,6 +116,7 @@ class Pinger {
           globals.host[2].update('packageReceived', (value) => received);
           globals.host[2].update('time', (value) => time);
           globals.host[2].update('jitter', (value) => jitter);
+          globals.host[2].update('rtt', (value) => RTT);
         }else if(event.summary?.received == 0){
           if(globals.data['networkType'] != 'mobile'){
             globals.host[2].update('name', (value) => hostName.toString());
@@ -119,6 +126,7 @@ class Pinger {
           globals.host[2].update('packageReceived', (value) => received);
           globals.host[2].update('time', (value) => time);
           globals.host[2].update('jitter', (value) => jitter);
+          globals.host[2].update('rtt', (value) => RTT);
         }
       }
     });
@@ -141,6 +149,7 @@ class Pinger {
         var received = event.summary!.received.toString();
         var time = event.summary!.time!.inMilliseconds;
         var jitter = StatsCalc().calculateJitter(timeList).toStringAsFixed(0);
+        var RTT = StatsCalc().calculateRTT(timeList).toStringAsFixed(0);
         if(event.summary?.received != 0){
           if(globals.data['networkType'] != 'mobile'){
             globals.host[3].update('name', (value) => hostName.toString());
@@ -150,6 +159,7 @@ class Pinger {
           globals.host[3].update('packageReceived', (value) => received);
           globals.host[3].update('time', (value) => time);
           globals.host[3].update('jitter', (value) => jitter);
+          globals.host[3].update('rtt', (value) => RTT);
         }else if(event.summary?.received == 0){
           if(globals.data['networkType'] != 'mobile'){
             globals.host[3].update('name', (value) => hostName.toString());
@@ -159,6 +169,7 @@ class Pinger {
           globals.host[3].update('packageReceived', (value) => received);
           globals.host[3].update('time', (value) => time);
           globals.host[3].update('jitter', (value) => jitter);
+          globals.host[3].update('rtt', (value) => RTT);
         }
       }
     });
