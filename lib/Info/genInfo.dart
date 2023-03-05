@@ -89,7 +89,7 @@ class MyInfoState extends State<Info>{
                   children: [
                     GestureDetector(
                       onTap: () {
-                        
+                        Navigator.pushNamed(context, '/tenth');
                       },
                       child: Card(
                         margin: const EdgeInsets.all(0),
