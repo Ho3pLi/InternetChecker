@@ -12,17 +12,7 @@ List<Map<String, Object>> host = [
     'rtt': 0
   },
   {
-    'name': 'xxxx',
-    'addr': '127.0.0.1',
-    'isAlive': false,
-    'packageTransmitted': '',
-    'packageReceived': '',
-    'time': '',
-    'jitter': 0,
-    'rtt': 0
-  },
-  {
-    'name': 'VPN',
+    'name': 'DNS',
     'addr': '8.8.8.8',
     'isAlive': false,
     'packageTransmitted': '',
@@ -33,7 +23,17 @@ List<Map<String, Object>> host = [
   },
   {
     'name': 'INTERNET',
-    'addr': '151.7.86.183',
+    'addr': 'google.com',
+    'isAlive': false,
+    'packageTransmitted': '',
+    'packageReceived': '',
+    'time': '',
+    'jitter': 0,
+    'rtt': 0
+  },
+  {
+    'name': 'custom',
+    'addr': 'custom',
     'isAlive': false,
     'packageTransmitted': '',
     'packageReceived': '',
