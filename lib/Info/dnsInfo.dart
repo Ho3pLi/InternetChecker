@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class wanInfo extends StatefulWidget {
-  const wanInfo({super.key});
+class dnsInfo extends StatefulWidget {
+  const dnsInfo({super.key});
 
   @override
   MywanInfoState createState() => MywanInfoState();
 }
 
-class MywanInfoState extends State<wanInfo> {
+class MywanInfoState extends State<dnsInfo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +27,7 @@ class MywanInfoState extends State<wanInfo> {
             fontStyle: FontStyle.normal,
             fontSize: 20,
             color: Colors.white,
-          ),
+          )
         ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),

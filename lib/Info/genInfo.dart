@@ -176,7 +176,7 @@ class MyInfoState extends State<Info>{
                                 shape: BoxShape.circle,
                               ),
                               child: Icon(
-                                Icons.route_rounded,
+                                Icons.dns,
                                 color: Colors.grey.shade900,
                                 size: 24,
                               ),
@@ -184,7 +184,7 @@ class MyInfoState extends State<Info>{
                             const Padding(
                               padding: EdgeInsets.fromLTRB(0, 12, 0, 8),
                               child: Text(
-                                "Wide Area Network",
+                                "Domain Name System",
                                 textAlign: TextAlign.center,
                                 maxLines: 1,
                                 overflow: TextOverflow.clip,
@@ -197,7 +197,7 @@ class MyInfoState extends State<Info>{
                               ),
                             ),
                             const Text(
-                              "WAN",
+                              "DNS",
                               textAlign: TextAlign.start,
                               overflow: TextOverflow.clip,
                               style: TextStyle(
@@ -233,7 +233,7 @@ class MyInfoState extends State<Info>{
                               shape: BoxShape.circle,
                             ),
                             child: Icon(
-                              Icons.vpn_lock,
+                              Icons.language,
                               color: Colors.grey.shade900,
                               size: 24,
                             ),
@@ -241,7 +241,7 @@ class MyInfoState extends State<Info>{
                           const Padding(
                             padding: EdgeInsets.fromLTRB(0, 12, 0, 8),
                             child: Text(
-                              "Virtual Private Network",
+                              "Internet",
                               textAlign: TextAlign.center,
                               maxLines: 1,
                               overflow: TextOverflow.clip,
@@ -251,17 +251,6 @@ class MyInfoState extends State<Info>{
                                 fontSize: 15,
                                 color: Color(0xff000000),
                               ),
-                            ),
-                          ),
-                          const Text(
-                            "VPN",
-                            textAlign: TextAlign.start,
-                            overflow: TextOverflow.clip,
-                            style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontStyle: FontStyle.normal,
-                              fontSize: 14,
-                              color: Color(0xff363636),
                             ),
                           ),
                         ],
@@ -289,7 +278,7 @@ class MyInfoState extends State<Info>{
                               shape: BoxShape.circle,
                             ),
                             child: Icon(
-                              Icons.language,
+                              Icons.dashboard_customize_rounded,
                               color: Colors.grey.shade900,
                               size: 24,
                             ),
@@ -297,7 +286,7 @@ class MyInfoState extends State<Info>{
                           const Padding(
                             padding: EdgeInsets.fromLTRB(0, 12, 0, 8),
                             child: Text(
-                              "Internet",
+                              "Custom",
                               textAlign: TextAlign.center,
                               maxLines: 1,
                               overflow: TextOverflow.clip,

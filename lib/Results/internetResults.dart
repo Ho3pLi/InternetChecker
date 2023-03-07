@@ -19,7 +19,7 @@ class MyResultsState extends State<internetResults> {
   listener: AdMobServices.bannerListener,
   );
 
-  Map<String, Object> info = globals.host[3];
+  Map<String, Object> info = globals.host[2];
 
   @override
   void initState() {

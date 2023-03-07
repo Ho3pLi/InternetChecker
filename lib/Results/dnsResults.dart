@@ -3,14 +3,14 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import '../Services/AdMobServices.dart';
 import 'package:check_internet/Global/globals.dart' as globals;
 
-class wanResults extends StatefulWidget {
-  const wanResults({super.key});
+class dnsResults extends StatefulWidget {
+  const dnsResults({super.key});
 
   @override
   MyResultsState createState() => MyResultsState();
 }
 
-class MyResultsState extends State<wanResults> {
+class MyResultsState extends State<dnsResults> {
 
   final BannerAd downBanner = BannerAd(
   adUnitId: AdMobServices.BannerAdUnitId!,
@@ -70,7 +70,7 @@ class MyResultsState extends State<wanResults> {
                 width: 16,
               ),
               const Text(
-                "WAN category",
+                "DNS category",
                 textAlign: TextAlign.start,
                 overflow: TextOverflow.clip,
                 style: TextStyle(

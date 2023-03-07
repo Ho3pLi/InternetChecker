@@ -19,7 +19,7 @@ class MyResultsState extends State<cResults> {
   listener: AdMobServices.bannerListener,
   );
 
-  Map<String, Object> info = globals.host[2];
+  Map<String, Object> info = globals.host[3];
 
   @override
   void initState() {
@@ -70,7 +70,7 @@ class MyResultsState extends State<cResults> {
                 width: 16,
               ),
               const Text(
-                "Custom host",
+                "Custom host category",
                 textAlign: TextAlign.start,
                 overflow: TextOverflow.clip,
                 style: TextStyle(

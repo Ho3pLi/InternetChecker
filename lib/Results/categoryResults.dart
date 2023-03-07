@@ -39,10 +39,11 @@ class MyResultsState extends State<categoryResults> {
       }else if(info['isAlive'] == false){
         if(globals.data['networkType'] == 'mobile'){
           hostState[0] = const Icon(Icons.cancel_rounded, color: Colors.redAccent, size: 24);
-          hostState[1] = const Icon(Icons.cancel_rounded, color: Colors.redAccent, size: 24);
+          // hostState[1] = const Icon(Icons.cancel_rounded, color: Colors.redAccent, size: 24);
         }else{
           hostState[i] = const Icon(Icons.check_circle, color: Colors.orangeAccent, size: 24);
         }
+        hostState[3] = const Icon(Icons.cancel_rounded, color: Colors.grey, size: 24);
       }
     }
   }
@@ -144,7 +145,7 @@ class MyResultsState extends State<categoryResults> {
                 child: ListTile(
                   tileColor: const Color(0x00ffffff),
                   title: const Text(
-                    "WAN",
+                    "DNS",
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
@@ -175,7 +176,7 @@ class MyResultsState extends State<categoryResults> {
                 child: ListTile(
                   tileColor: const Color(0x00ffffff),
                   title: const Text(
-                    "VPN",
+                    "INTERNET",
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
@@ -196,7 +197,7 @@ class MyResultsState extends State<categoryResults> {
                     icon: const Icon(Icons.arrow_forward_ios, size: 20),
                     color: const Color(0xff808080),
                     onPressed: () {
-                      Navigator.pushNamed(context, '/sixth');
+                      Navigator.pushNamed(context, '/seventh');
                     },
                   ),
                 ),
@@ -206,7 +207,7 @@ class MyResultsState extends State<categoryResults> {
                 child: ListTile(
                   tileColor: const Color(0x00ffffff),
                   title: const Text(
-                    "INTERNET",
+                    "CUSTOM",
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
@@ -227,7 +228,7 @@ class MyResultsState extends State<categoryResults> {
                     icon: const Icon(Icons.arrow_forward_ios, size: 20),
                     color: const Color(0xff808080),
                     onPressed: () {
-                      Navigator.pushNamed(context, '/seventh');
+                      Navigator.pushNamed(context, '/sixth'); //TODO - disponibile solo in versione premium
                     },
                   ),
                 ),

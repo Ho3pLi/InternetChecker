@@ -1,14 +1,14 @@
 import 'dart:developer';
 import 'package:check_internet/Info/dfgwInfo.dart';
-import 'package:check_internet/Info/wanInfo.dart';
+import 'package:check_internet/Info/dnsInfo.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:check_internet/GetStarted/getStarted.dart';
 import 'package:check_internet/Home/home.dart';
-import 'package:check_internet/Results/cResults.dart';
+import 'package:check_internet/Results/internetResults.dart';
 import 'package:check_internet/Results/categoryResults.dart';
 import 'package:check_internet/Results/dfgwResults.dart';
-import 'package:check_internet/Results/internetResults.dart';
-import 'package:check_internet/Results/wanResults.dart';
+import 'package:check_internet/Results/cResults.dart';
+import 'package:check_internet/Results/dnsResults.dart';
 import 'package:check_internet/Info/genInfo.dart';
 import 'package:check_internet/Settings/settings.dart';
 import 'package:flutter/material.dart';
@@ -43,13 +43,13 @@ class App extends StatelessWidget {
       '/second': (context) => const Home(),
       '/third':(context) => const categoryResults(),
       '/fourth':(context) => const dfgwResults(),
-      '/fifth':(context) => const wanResults(),
+      '/fifth':(context) => const dnsResults(),
       '/sixth':(context) => const cResults(),
       '/seventh':(context) => const internetResults(),
       '/eighth':(context) => const Info(),
       '/nineth':(context) => const Settings(),
       '/tenth':(context) => const dfgwInfo(),
-      '/eleventh':(context) => const wanInfo(),
+      '/eleventh':(context) => const dnsInfo(),
       },
     );
   }

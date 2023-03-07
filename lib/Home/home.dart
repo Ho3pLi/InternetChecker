@@ -32,8 +32,8 @@ class MyHomeState extends State<Home> {
 
   Icon dfgwIcon = Icon(Icons.router, size: 40, color: Colors.grey.shade900);
   Text dfgwText = Text("DFGW", style: TextStyle(color: Colors.grey.shade900, fontSize: 20));
-  Icon wanIcon = Icon(Icons.route_rounded, size: 40, color: Colors.grey.shade900);
-  Text wanText = Text("WAN", style: TextStyle(color: Colors.grey.shade900, fontSize: 20));
+  Icon dnsIcon = Icon(Icons.dns, size: 40, color: Colors.grey.shade900);
+  Text dnsText = Text("DNS", style: TextStyle(color: Colors.grey.shade900, fontSize: 20));
   bool visible = false;
   bool serviceEnabled = false;
   late LocationPermission gpsPermission;
@@ -46,8 +46,8 @@ class MyHomeState extends State<Home> {
     if(globals.data['networkType'] == 'mobile'){
       dfgwIcon = const Icon(Icons.router, size: 40, color: Colors.grey);
       dfgwText = const Text("DFGW", style: TextStyle(color: Colors.grey, fontSize: 20));
-      wanIcon = const Icon(Icons.route_rounded, size: 40, color: Colors.grey);
-      wanText = const Text("WAN", style: TextStyle(color: Colors.grey, fontSize: 20));
+      dnsIcon = const Icon(Icons.dns, size: 40, color: Colors.grey);
+      dnsText = const Text("DNS", style: TextStyle(color: Colors.grey, fontSize: 20));
     }
   }
 
@@ -109,15 +109,8 @@ class MyHomeState extends State<Home> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                wanIcon,
-                wanText
-              ],),),
-              Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.white),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                Icon(Icons.vpn_lock, size: 40, color: Colors.grey.shade900),
-                Text("VPN", style: TextStyle(color: Colors.grey.shade900, fontSize: 20))
+                dnsIcon,
+                dnsText
               ],),),
               Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.white),
               child: Column(
@@ -125,6 +118,13 @@ class MyHomeState extends State<Home> {
                 children: [
                 Icon(Icons.language, size: 40, color: Colors.grey.shade900),
                 Text("INTERNET", style: TextStyle(color: Colors.grey.shade900, fontSize: 20))
+              ],),),
+              Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.white),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                Icon(Icons.dashboard_customize_rounded, size: 40, color: Colors.grey),
+                Text("CUSTOM", style: TextStyle(color: Colors.grey, fontSize: 20))
               ],),),
             ],),
           )),
@@ -193,7 +193,8 @@ class MyHomeState extends State<Home> {
                         Pinger().pingFourth();
                       }else if (globals.data['networkType'] == 'mobile'){
                         globals.host[0].update('name', (value) => 'Not Avaible');
-                        globals.host[1].update('name', (value) => 'Not Avaible');
+                        // globals.host[1].update('name', (value) => 'Not Avaible');
+                        Pinger().pingSecond();
                         Pinger().pingThird();
                         Pinger().pingFourth();
                       }
