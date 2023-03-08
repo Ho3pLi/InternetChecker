@@ -37,7 +37,7 @@ class MyInfoState extends State<Info>{
           borderRadius: BorderRadius.zero,
         ),
         title: const Text(
-          "General Info",
+          "Informazioni generali",
           style: TextStyle(
             fontWeight: FontWeight.w700,
             fontStyle: FontStyle.normal,

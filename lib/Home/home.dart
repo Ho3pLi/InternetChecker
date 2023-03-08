@@ -264,7 +264,7 @@ class MyHomeState extends State<Home> {
               style: ElevatedButton.styleFrom(
               backgroundColor: Colors.white,
               ),
-              child: const Text('Start Checking', style: TextStyle(color: Colors.black),),
+              child: const Text('Test connessione', style: TextStyle(color: Colors.black),),
             ),
           ),
           Container(
