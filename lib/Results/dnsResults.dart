@@ -49,6 +49,14 @@ class MyResultsState extends State<dnsResults> {
             color: Color(0xffffffff),
           ),
         ),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.info_outline),
+            onPressed: () {
+              Navigator.pushNamed(context, '/thirteen');
+            },
+          ),
+        ],
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           color: const Color(0xffffffff),

@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'package:check_internet/Info/dfgwInfo.dart';
 import 'package:check_internet/Info/dnsInfo.dart';
 import 'package:check_internet/Info/internetInfo.dart';
+import 'package:check_internet/Info/statsInfo.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:check_internet/GetStarted/getStarted.dart';
 import 'package:check_internet/Home/home.dart';
@@ -52,6 +53,7 @@ class App extends StatelessWidget {
       '/tenth':(context) => const dfgwInfo(),
       '/eleventh':(context) => const dnsInfo(),
       '/twelfth':(context) => const internetInfo(),
+      '/thirteen':(context) => const statsInfo(),
       },
     );
   }
