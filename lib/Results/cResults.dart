@@ -78,7 +78,7 @@ class MyResultsState extends State<cResults> {
                 width: 16,
               ),
               const Text(
-                "Custom host category",
+                "Categoria indirizzo personalizzato",
                 textAlign: TextAlign.start,
                 overflow: TextOverflow.clip,
                 style: TextStyle(
@@ -93,7 +93,7 @@ class MyResultsState extends State<cResults> {
                 child: ListTile(
                   tileColor: const Color(0x00ffffff),
                   title: const Text(
-                    "Package transmitted",
+                    "Pacchetti trasmessi",
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
@@ -131,7 +131,7 @@ class MyResultsState extends State<cResults> {
                 child: ListTile(
                   tileColor: const Color(0x00ffffff),
                   title: const Text(
-                    "Package received",
+                    "Pacchetti ricevuti",
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
@@ -165,7 +165,7 @@ class MyResultsState extends State<cResults> {
                 child: ListTile(
                   tileColor: const Color(0x00ffffff),
                   title: const Text(
-                    "Time (ms)",
+                    "Tempo (ms)",
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,

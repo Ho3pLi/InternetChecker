@@ -62,7 +62,7 @@ class MyResultsState extends State<categoryResults> {
           borderRadius: BorderRadius.zero,
         ),
         title: const Text(
-          "Results",
+          "Risultati",
           style: TextStyle(
             fontWeight: FontWeight.w700,
             fontStyle: FontStyle.normal,
@@ -99,7 +99,7 @@ class MyResultsState extends State<categoryResults> {
                 width: 16,
               ),
               const Text(
-                "Results category",
+                "Categoria risultati",
                 textAlign: TextAlign.start,
                 overflow: TextOverflow.clip,
                 style: TextStyle(
