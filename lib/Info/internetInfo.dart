@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class dnsInfo extends StatefulWidget {
-  const dnsInfo({super.key});
+class internetInfo extends StatefulWidget {
+  const internetInfo({super.key});
 
   @override
-  MyDnsInfoState createState() => MyDnsInfoState();
+  MyInternetInfoState createState() => MyInternetInfoState();
 }
 
-class MyDnsInfoState extends State<dnsInfo> {
+class MyInternetInfoState extends State<internetInfo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +21,7 @@ class MyDnsInfoState extends State<dnsInfo> {
           borderRadius: BorderRadius.zero,
         ),
         title: const Text(
-          "Domain Name System",
+          "Internet",
           style: TextStyle(
             fontWeight: FontWeight.w700,
             fontStyle: FontStyle.normal,
@@ -48,7 +48,7 @@ class MyDnsInfoState extends State<dnsInfo> {
               const Padding( 
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 50),
                 child: Icon(
-                  Icons.dns,
+                  Icons.language,
                   size: 70,
                   color: Colors.white
                 ),
@@ -77,7 +77,7 @@ class MyDnsInfoState extends State<dnsInfo> {
               const Padding(
                 padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
                 child: Text(
-                  "Un server DNS (Domain Name System) è un tipo di computer che aiuta a tradurre gli indirizzi web (come www.google.com) in indirizzi IP (come 216.58.194.174) utilizzati dalle macchine per connettersi a Internet.\nIn pratica, quando inserisci un nome di dominio nella barra degli indirizzi del tuo browser, il tuo dispositivo invia una richiesta al server DNS per tradurre il nome di dominio in un indirizzo IP che viene utilizzato per accedere al sito web.\nIl server DNS restituisce quindi l'indirizzo IP corrispondente, consentendo al tuo dispositivo di connettersi al sito web.Un server DNS è essenziale per la navigazione su Internet perché ci permette di accedere ai siti web utilizzando i nomi di dominio che ci sono più familiari, invece di dover ricordare gli indirizzi IP complessi.",
+                  "Internet è una vasta rete di computer connessi tra loro in tutto il mondo, che consente alle persone di comunicare, condividere informazioni e accedere a una vasta gamma di servizi online.",
                   textAlign: TextAlign.left,
                   overflow: TextOverflow.clip,
                   style: TextStyle(
@@ -112,7 +112,7 @@ class MyDnsInfoState extends State<dnsInfo> {
               const Padding(
                 padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
                 child: Text(
-                  "L'icona verde accanto alla scritta 'DNS' indica che la connessione verso il server dns non ha problemi.",
+                  "L'icona verde accanto alla scritta 'INTERNET' indica che la connessione verso internet non ha problemi.",
                   textAlign: TextAlign.left,
                   overflow: TextOverflow.clip,
                   style: TextStyle(
@@ -147,7 +147,7 @@ class MyDnsInfoState extends State<dnsInfo> {
               const Padding(
                 padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
                 child: Text(
-                  "L'icona arancione accanto alla scritta 'DNS' indica che la connessione verso il server DNS risulta avere alcuni problemi.",
+                  "L'icona arancione accanto alla scritta 'INTERNET' indica che la connessione verso internet risulta avere alcuni problemi.",
                   textAlign: TextAlign.left,
                   overflow: TextOverflow.clip,
                   style: TextStyle(
@@ -182,7 +182,7 @@ class MyDnsInfoState extends State<dnsInfo> {
               const Padding(
                 padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
                 child: Text(
-                  "Se i ping al server DNS vanno a buon fine, significa che il tuo dispositivo è in grado di comunicare con il server DNS e che la connessione di rete tra il tuo dispositivo e il server DNS funziona correttamente.\nIl ping al server DNS è uno dei test che si effettuano per verificare la connessione di rete e risolvere eventuali problemi di connettività.\nSe il ping al server DNS non va a buon fine, potrebbe esserci un problema nella connessione tra il tuo dispositivo e il server DNS, ad esempio un cavo Ethernet scollegato, una configurazione di rete errata o un problema con il server DNS stesso.\nIn questo caso, dovrai verificare la tua configurazione di rete e risolvere il problema per ripristinare la connessione di rete.",
+                  "Pingare Internet significa inviare un messaggio di prova al server di un sito web o a un'altra destinazione su Internet per verificare la connettività di rete.\nQuesto test può essere utilizzato per verificare la velocità e la qualità della tua connessione di rete, nonché per identificare eventuali problemi di connessione.\nQuando l\'app pinga Internet, invia un messaggio di prova a uno dei server di rete Internet.\nSe il ping va a buon fine, significa che il tuo dispositivo è in grado di comunicare correttamente con Internet e che la tua connessione di rete funziona correttamente.\nSe il ping non va a buon fine, ci potrebbero essere problemi di connessione che devono essere risolti per accedere correttamente a Internet.\nIn sostanza, pingare Internet è un modo per verificare la salute della tua connessione di rete e assicurarti che il tuo dispositivo possa comunicare correttamente con il resto del mondo su Internet.",
                   textAlign: TextAlign.left,
                   overflow: TextOverflow.clip,
                   style: TextStyle(
