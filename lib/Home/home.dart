@@ -74,14 +74,14 @@ class MyHomeState extends State<Home> {
             color: Colors.white,
           ),
         ),
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.settings),
-            onPressed: () {
-              Navigator.pushNamed(context, '/nineth');
-            },
-          ),
-        ],
+        // actions: <Widget>[
+        //   IconButton(
+        //     icon: const Icon(Icons.settings),
+        //     onPressed: () {
+        //       Navigator.pushNamed(context, '/nineth');
+        //     },
+        //   ),
+        // ],
       ),
       body: Column(
         children: [
