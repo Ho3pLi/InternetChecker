@@ -211,49 +211,54 @@ class MyInfoState extends State<Info>{
                         ),
                       ),
                     ),
-                    Card(
-                      margin: const EdgeInsets.all(0),
-                      color: const Color(0xffffffff),
-                      shadowColor: const Color(0xff000000),
-                      elevation: 4,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Container(
-                            alignment: Alignment.center,
-                            margin: const EdgeInsets.all(0),
-                            padding: const EdgeInsets.all(12),
-                            decoration: const BoxDecoration(
-                              color: Color(0x2d3a57e8),
-                              shape: BoxShape.circle,
-                            ),
-                            child: Icon(
-                              Icons.language,
-                              color: Colors.grey.shade900,
-                              size: 24,
-                            ),
-                          ),
-                          const Padding(
-                            padding: EdgeInsets.fromLTRB(0, 12, 0, 8),
-                            child: Text(
-                              "Internet",
-                              textAlign: TextAlign.center,
-                              maxLines: 1,
-                              overflow: TextOverflow.clip,
-                              style: TextStyle(
-                                fontWeight: FontWeight.w700,
-                                fontStyle: FontStyle.normal,
-                                fontSize: 15,
-                                color: Color(0xff000000),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/twelfth');
+                      },
+                      child: Card(
+                        margin: const EdgeInsets.all(0),
+                        color: const Color(0xffffffff),
+                        shadowColor: const Color(0xff000000),
+                        elevation: 4,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Container(
+                              alignment: Alignment.center,
+                              margin: const EdgeInsets.all(0),
+                              padding: const EdgeInsets.all(12),
+                              decoration: const BoxDecoration(
+                                color: Color(0x2d3a57e8),
+                                shape: BoxShape.circle,
+                              ),
+                              child: Icon(
+                                Icons.language,
+                                color: Colors.grey.shade900,
+                                size: 24,
                               ),
                             ),
-                          ),
-                        ],
+                            const Padding(
+                              padding: EdgeInsets.fromLTRB(0, 12, 0, 8),
+                              child: Text(
+                                "Internet",
+                                textAlign: TextAlign.center,
+                                maxLines: 1,
+                                overflow: TextOverflow.clip,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  fontStyle: FontStyle.normal,
+                                  fontSize: 15,
+                                  color: Color(0xff000000),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     Card(
@@ -277,9 +282,9 @@ class MyInfoState extends State<Info>{
                               color: Color(0x2d3a57e8),
                               shape: BoxShape.circle,
                             ),
-                            child: Icon(
+                            child: const Icon(
                               Icons.dashboard_customize_rounded,
-                              color: Colors.grey.shade900,
+                              color: Colors.grey,
                               size: 24,
                             ),
                           ),
@@ -294,7 +299,7 @@ class MyInfoState extends State<Info>{
                                 fontWeight: FontWeight.w700,
                                 fontStyle: FontStyle.normal,
                                 fontSize: 16,
-                                color: Color(0xff000000),
+                                color: Colors.grey,
                               ),
                             ),
                           ),
