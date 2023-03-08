@@ -21,7 +21,7 @@ class MyStatsInfoState extends State<statsInfo> {
           borderRadius: BorderRadius.zero,
         ),
         title: const Text(
-          "Domain Name System",
+          "Statistiche",
           style: TextStyle(
             fontWeight: FontWeight.w700,
             fontStyle: FontStyle.normal,
@@ -48,7 +48,7 @@ class MyStatsInfoState extends State<statsInfo> {
               const Padding( 
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 50),
                 child: Icon(
-                  Icons.dns,
+                  Icons.perm_device_info_rounded,
                   size: 70,
                   color: Colors.white
                 ),
@@ -61,7 +61,7 @@ class MyStatsInfoState extends State<statsInfo> {
                   mainAxisSize: MainAxisSize.max,
                   children: const [
                     Text(
-                      "Cos'è?",
+                      "Cosa sono i pacchetti trasmessi?",
                       textAlign: TextAlign.start,
                       overflow: TextOverflow.clip,
                       style: TextStyle(
@@ -77,7 +77,7 @@ class MyStatsInfoState extends State<statsInfo> {
               const Padding(
                 padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
                 child: Text(
-                  "Un server DNS (Domain Name System) è un tipo di computer che aiuta a tradurre gli indirizzi web (come www.google.com) in indirizzi IP (come 216.58.194.174) utilizzati dalle macchine per connettersi a Internet.\nIn pratica, quando inserisci un nome di dominio nella barra degli indirizzi del tuo browser, il tuo dispositivo invia una richiesta al server DNS per tradurre il nome di dominio in un indirizzo IP che viene utilizzato per accedere al sito web.\nIl server DNS restituisce quindi l'indirizzo IP corrispondente, consentendo al tuo dispositivo di connettersi al sito web.Un server DNS è essenziale per la navigazione su Internet perché ci permette di accedere ai siti web utilizzando i nomi di dominio che ci sono più familiari, invece di dover ricordare gli indirizzi IP complessi.",
+                  "Quando esegui il controllo della connessione, viene inviato un piccolo pacchetto di dati attraverso la rete al server di destinazione, come se fosse una sorta di messaggero.\nIl pacchetto di dati contiene un messaggio che dice al server di destinazione di rispondere al tuo dispositivo.",
                   textAlign: TextAlign.left,
                   overflow: TextOverflow.clip,
                   style: TextStyle(
@@ -96,7 +96,7 @@ class MyStatsInfoState extends State<statsInfo> {
                   mainAxisSize: MainAxisSize.max,
                   children: const [
                     Text(
-                      "C'è un'icona verde, cosa significa?",
+                      "Cosa sono i pacchetti ricevuti?",
                       textAlign: TextAlign.start,
                       overflow: TextOverflow.clip,
                       style: TextStyle(
@@ -112,7 +112,7 @@ class MyStatsInfoState extends State<statsInfo> {
               const Padding(
                 padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
                 child: Text(
-                  "L'icona verde accanto alla scritta 'DNS' indica che la connessione verso il server dns non ha problemi.",
+                  "Una volta che il server riceve il pacchetto, lo elabora e invia un pacchetto di risposta indietro al tuo dispositivo, contenente lo stesso messaggio che hai inviato, insieme ad altre informazioni e il tempo in cui il pacchetto è stato ricevuto.",
                   textAlign: TextAlign.left,
                   overflow: TextOverflow.clip,
                   style: TextStyle(
@@ -131,7 +131,7 @@ class MyStatsInfoState extends State<statsInfo> {
                   mainAxisSize: MainAxisSize.max,
                   children: const [
                     Text(
-                      "C'è un'icona arancione, cosa significa?",
+                      "Cos'è il tempo?",
                       textAlign: TextAlign.start,
                       overflow: TextOverflow.clip,
                       style: TextStyle(
@@ -147,7 +147,7 @@ class MyStatsInfoState extends State<statsInfo> {
               const Padding(
                 padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
                 child: Text(
-                  "L'icona arancione accanto alla scritta 'DNS' indica che la connessione verso il server DNS risulta avere alcuni problemi.",
+                  "Il tempo in un ping è il tempo che impiega un pacchetto di dati per andare dal tuo dispositivo al server di destinazione e tornare indietro.\nIl tempo viene misurato in millisecondi (ms) e indica la velocità con cui i pacchetti di dati vengono trasmessi tra i due dispositivi.\nUn tempo di ping più basso indica una connessione di rete più veloce e più stabile, mentre un tempo di ping più elevato potrebbe indicare problemi di connessione o congestione di rete.",
                   textAlign: TextAlign.left,
                   overflow: TextOverflow.clip,
                   style: TextStyle(
@@ -166,7 +166,7 @@ class MyStatsInfoState extends State<statsInfo> {
                   mainAxisSize: MainAxisSize.max,
                   children: const [
                     Text(
-                      "A cosa serve verificare la connessione\ntra il mio dispositivo e il server DNS?",
+                      "Cos'è il jitter?",
                       textAlign: TextAlign.start,
                       overflow: TextOverflow.clip,
                       style: TextStyle(
@@ -182,7 +182,42 @@ class MyStatsInfoState extends State<statsInfo> {
               const Padding(
                 padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
                 child: Text(
-                  "Se i ping al server DNS vanno a buon fine, significa che il tuo dispositivo è in grado di comunicare con il server DNS e che la connessione di rete tra il tuo dispositivo e il server DNS funziona correttamente.\nIl ping al server DNS è uno dei test che si effettuano per verificare la connessione di rete e risolvere eventuali problemi di connettività.\nSe il ping al server DNS non va a buon fine, potrebbe esserci un problema nella connessione tra il tuo dispositivo e il server DNS, ad esempio un cavo Ethernet scollegato, una configurazione di rete errata o un problema con il server DNS stesso.\nIn questo caso, dovrai verificare la tua configurazione di rete e risolvere il problema per ripristinare la connessione di rete.",
+                  "Il jitter è la differenza di tempo tra l'arrivo di un pacchetto di dati e l'arrivo del pacchetto successivo.\nPer esempio, se hai un jitter di 10 millisecondi, significa che alcuni pacchetti di dati arrivano con un ritardo di 10 millisecondi rispetto ad altri pacchetti. Questa variazione può causare problemi di qualità della connessione, come scatti o interruzioni durante le videochiamate o lo streaming di video.\nIl jitter è misurato in millisecondi ed è preferibile avere un jitter basso, perché significa che i pacchetti di dati stanno arrivando in modo uniforme e regolare, mentre un jitter elevato può indicare problemi di congestione di rete o di connessione instabile.",
+                  textAlign: TextAlign.left,
+                  overflow: TextOverflow.clip,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontStyle: FontStyle.normal,
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 40, left: 16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.max,
+                  children: const [
+                    Text(
+                      "Cos'è l'RTT?",
+                      textAlign: TextAlign.start,
+                      overflow: TextOverflow.clip,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontStyle: FontStyle.italic,
+                        fontSize: 18,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
+                child: Text(
+                  "L'RTT è il tempo necessario per completare un ciclo completo di trasmissione e ricezione dei dati.\nUn RTT più basso indica una connessione di rete più veloce e più stabile, mentre un RTT più elevato potrebbe indicare problemi di congestione di rete o di connessione instabile. Il RTT è una delle principali metriche utilizzate per valutare la velocità e l'affidabilità di una connessione di rete, viene misurati in millisecondi (ms).",
                   textAlign: TextAlign.left,
                   overflow: TextOverflow.clip,
                   style: TextStyle(
