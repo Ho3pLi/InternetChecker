@@ -18,7 +18,7 @@ class GetStarted extends StatelessWidget {
               const Align(
                 alignment: Alignment.center,
                 child: Text(
-                  "What's wrong with my internet connection?",
+                  "Cosa c'è che non va nella mia connessione?",
                   textAlign: TextAlign.center,
                   overflow: TextOverflow.clip,
                   style: TextStyle(
@@ -34,13 +34,7 @@ class GetStarted extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  /*Lottie.network(
-                    "https://assets2.lottiefiles.com/packages/lf20_qxa7vvmh.json",
-                    width: MediaQuery.of(context).size.width,
-                    fit: BoxFit.contain,
-                    repeat: true,
-                    animate: true,
-                  ),*/
+                  Image.asset('assets/whatsWrong.png'),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(0, 16, 0, 70),
                     child: Column(
@@ -89,7 +83,7 @@ class GetStarted extends StatelessWidget {
                 height: 50,
                 minWidth: 200,
                 child: const Text(
-                  "Let's check",
+                  "Inizia",
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w700,
