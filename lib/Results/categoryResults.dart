@@ -224,13 +224,13 @@ class MyResultsState extends State<categoryResults> {
                     borderRadius: BorderRadius.zero,
                   ),
                   leading: hostState[3],
-                  trailing: IconButton(
-                    icon: const Icon(Icons.arrow_forward_ios, size: 20),
-                    color: const Color(0xff808080),
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/sixth'); //TODO - disponibile solo in versione premium
-                    },
-                  ),
+                  // trailing: IconButton(
+                  //   icon: const Icon(Icons.arrow_forward_ios, size: 20),
+                  //   color: const Color(0xff808080),
+                  //   onPressed: () {
+                  //     Navigator.pushNamed(context, '/sixth'); //TODO - disponibile solo in versione premium
+                  //   },
+                  // ),
                 ),
               ),
               Container(

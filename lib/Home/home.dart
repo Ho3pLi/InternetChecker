@@ -46,8 +46,8 @@ class MyHomeState extends State<Home> {
     if(globals.data['networkType'] == 'mobile'){
       dfgwIcon = const Icon(Icons.router, size: 40, color: Colors.grey);
       dfgwText = const Text("DFGW", style: TextStyle(color: Colors.grey, fontSize: 20));
-      dnsIcon = const Icon(Icons.dns, size: 40, color: Colors.grey);
-      dnsText = const Text("DNS", style: TextStyle(color: Colors.grey, fontSize: 20));
+      // dnsIcon = const Icon(Icons.dns, size: 40, color: Colors.grey);
+      // dnsText = const Text("DNS", style: TextStyle(color: Colors.grey, fontSize: 20));
     }
   }
 
