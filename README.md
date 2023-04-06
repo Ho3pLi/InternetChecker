@@ -15,6 +15,8 @@ C'è voluto qualche mese ma non penso di aver fatto un pessimo lavoro.
 
 Per qualsiasi dubbio, critica o consiglio non esitate a contattarmi!
 
+
+
 **English**
 
 The "Internet Checker" app provides an essential tool to monitor and check your internet connection.
