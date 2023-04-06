@@ -1,7 +1,7 @@
 
 # Internet Checker - my first app in Flutter
 
-Italian
+**Italian**
 
 L'app "Internet Checker" fornisce uno strumento essenziale per monitorare e controllare la connessione internet. 
 
@@ -15,7 +15,7 @@ C'è voluto qualche mese ma non penso di aver fatto un pessimo lavoro.
 
 Per qualsiasi dubbio, critica o consiglio non esitate a contattarmi!
 
-English
+**English**
 
 The "Internet Checker" app provides an essential tool to monitor and check your internet connection.
 
@@ -64,7 +64,7 @@ For any doubt, criticism or advice, do not hesitate to contact me!
 
 ## Installation & Usage
 
-Italian
+**Italian**
 
 Per testare l'app sul vostro computer, dopo aver installato tutti i requisiti necessari, vi bastera' selezionare l'emulatore e compilare il codice da VS Code.
 
@@ -75,7 +75,7 @@ Lascio alcuni link utili:
 - https://developer.android.com/studio
 - https://bit.ly/3ZLapkT
 
-English
+**English**
 
 To test the app on your computer, after installing all the necessary requirements, just select the emulator and compile the code from VS Code.
 
