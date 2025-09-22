@@ -3,15 +3,15 @@
 
 **Italian**
 
-L'app "Internet Checker" fornisce uno strumento essenziale per monitorare e controllare la connessione internet. 
+L'app "Internet Checker" fornisce uno strumento essenziale per monitorare e controllare la connessione internet.
 
 Con Internet Checker puoi monitorare la tua connessione, controllandone la velocità, la stabilità, e gli eventuali problemi di connessione.
 
-Ho deciso di usare Flutter poichè lo ritengo altamente modulabile e scalabile.
+Ho deciso di usare Flutter poiché lo ritengo altamente modulabile e scalabile. Flutter gode di una community medio-grande e quindi trovare documentazione online è abbastanza facile.
 
-Flutter gode di una community medio-grande e quindi trovare documentazione online è abbastanza facile.
+L'app è stata pubblicata sul **Google Play Store** ed è rimasta online per circa un anno, finché non è stata rimossa a causa di alcune restrizioni legate all’aggiornamento di API esterne.
 
-C'è voluto qualche mese ma non penso di aver fatto un pessimo lavoro.
+È stata la mia prima app sviluppata con Flutter, ma sicuramente non sarà l’ultima!
 
 Per qualsiasi dubbio, critica o consiglio non esitate a contattarmi!
 
@@ -23,11 +23,11 @@ The "Internet Checker" app provides an essential tool to monitor and check your 
 
 With Internet Checker you can monitor your connection, checking its speed, stability, and any connection problems.
 
-I decided to use Flutter as I find it highly modular and scalable.
+I decided to use Flutter as I find it highly modular and scalable. Flutter has a medium to large community, which makes finding documentation online quite easy.
 
-Flutter has a medium to large community and therefore finding documentation online is quite easy.
+The app was published on the **Google Play Store** and stayed online for about a year, before being removed due to some restrictions related to API updates.
 
-It took a few months but I don't think I did a bad job.
+It was my first app built with Flutter, but it certainly won’t be the last!
 
 For any doubt, criticism or advice, do not hesitate to contact me!
 
